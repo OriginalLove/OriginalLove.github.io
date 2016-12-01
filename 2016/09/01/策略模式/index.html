@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>策略模式 | iuni | 生活有你才有爱(iuni.life)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Java 设计模式">
+  <meta name="description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x7B56;&amp;#x7565;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="策略模式">
+<meta property="og:url" content="http://iuni.life/2016/09/01/策略模式/index.html">
+<meta property="og:site_name" content="iuni">
+<meta property="og:description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x7B56;&amp;#x7565;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;">
+<meta property="og:image" content="http://iuni.life/2016/09/01/策略模式/clms1.png">
+<meta property="og:image" content="http://iuni.life/2016/09/01/策略模式/clns2.png">
+<meta property="og:image" content="http://iuni.life/2016/09/01/策略模式/clns2.png">
+<meta property="og:updated_time" content="2016-09-05T07:50:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="策略模式">
+<meta name="twitter:description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x7B56;&amp;#x7565;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;">
+<meta name="twitter:image" content="http://iuni.life/2016/09/01/策略模式/clms1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x7B56;&amp;#x7565;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;&lt;/p&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/2.png"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">iuni.life</h5>
+        <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              归档
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/OriginalLove" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://weibo.com/u/3219891670" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>iuni &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">策略模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">策略模式</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-09-01T06:51:44.000Z" itemprop="datePublished" class="page-time">
+  2016-09-01
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-策略模式" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">策略模式介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">策略模式定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">策略模式使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">策略模式通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">策略模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">策略模式优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式的拓展"><span class="post-toc-number">8.</span> <span class="post-toc-text">策略模式的拓展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">9.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">11.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>&#x6458;&#x8981;:</strong></p>
+<p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x3002;</p>
+  <a id="more"></a>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6DF1;&#xFF0C;&#x94C1;&#x6775;&#x78E8;&#x6210;&#x9488;&#xFF0C;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6C34;&#x6EF4;&#x77F3;&#x7A7F;&#x3002;&#x5B66;&#x4E60;&#x4E5F;&#x8981;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#xFF0C;&#x624D;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x91CF;&#x53D8;&#x4FC3;&#x6210;&#x8D28;&#x53D8;&#x3002;&#x5728;&#x524D;&#x8FDB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8981;&#x4FDD;&#x6301;&#x597D;&#x826F;&#x597D;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x6025;&#x4E0D;&#x71E5;&#xFF0C;&#x811A;&#x8E0F;&#x5B9E;&#x5730;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x4E2A;&#x811A;&#x5370;&#x3002;</p>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;</h2><p>&#x200B;    &#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4E5F;&#x53EB;&#x653F;&#x7B56;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x884C;&#x4E3A;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x91C7;&#x7528;&#x4E86;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7EE7;&#x627F;&#x548C;&#x591A;&#x6001;&#x673A;&#x5236;&#xFF0C;&#x4E0B;&#x9762;&#x8BA9;&#x6211;&#x4EEC;&#x8BE6;&#x7EC6;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5427;&#xFF01;</p>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;</h2><p>&#x200B;    &#x5B9A;&#x4E49;&#x4E00;&#x7EC4;&#x7B97;&#x6CD5;&#xFF0C;&#x5C06;&#x6BCF;&#x4E2A;&#x7B97;&#x6CD5;&#x90FD;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x4E92;&#x6362;&#x3002;</p>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;</h2><ul>
+<li>&#x591A;&#x4E2A;&#x7C7B;&#x53EA;&#x6709;&#x5728;&#x7B97;&#x6CD5;&#x6216;&#x884C;&#x4E3A;&#x4E0A;&#x7A0D;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x573A;&#x666F;&#x3002;</li>
+<li>&#x7B97;&#x6CD5;&#x9700;&#x8981;&#x81EA;&#x7531;&#x5207;&#x6362;&#x7684;&#x573A;&#x666F;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x5C4F;&#x853D;&#x7B97;&#x6CD5;&#x89C4;&#x5219;&#x7684;&#x573A;&#x666F;</li>
+</ul>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p> <img src="/2016/09/01/&#x7B56;&#x7565;&#x6A21;&#x5F0F;/clms1.png" alt="clms1"></p>
+<p><strong>&#x8BF4;&#x660E;:</strong></p>
+<ul>
+<li><p><strong>Context</strong></p>
+<p>&#x4ED6;&#x4E5F;&#x53EB;&#x4F5C;&#x4E0A;&#x4E0B;&#x6587;&#x89D2;&#x8272;&#xFF0C;&#x8D77;&#x627F;&#x4E0A;&#x542F;&#x4E0B;&#x5C01;&#x88C5;&#x4F5C;&#x7528;&#xFF0C;&#x5C4F;&#x853D;&#x9AD8;&#x5C42;&#x6A21;&#x5757;&#x5BF9;&#x7B56;&#x7565;&#x3001;&#x7B97;&#x6CD5;&#x7684;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF0C;&#x5C01;&#x88C5;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+</li>
+<li><p><strong>Strategy </strong></p>
+<p>&#x7B56;&#x7565;&#x3001;&#x7B97;&#x6CD5;&#x5BB6;&#x65CF;&#x7684;&#x62BD;&#x8C61;&#x3002;&#x901A;&#x5E38;&#x4E3A;&#x63A5;&#x53E3;&#xFF0C;&#x5B9A;&#x4E49;&#x6BCF;&#x4E2A;&#x7B56;&#x7565;&#x6216;&#x7B97;&#x6CD5;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x3002;&#x662F;&#x7B56;&#x7565;&#x7684;&#x62BD;&#x8C61;&#x3002;</p>
+</li>
+<li><p><strong>ConcreteStrategy</strong></p>
+<p>&#x5177;&#x4F53;&#x7684;&#x7B56;&#x7565;&#x5B9E;&#x73B0;&#x3002;&#x8BE5;&#x7C7B;&#x542B;&#x6709;&#x5177;&#x4F53;&#x7684;&#x7B97;&#x6CD5;&#x3002; </p>
+</li>
+</ul>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</h2><p>&#x200B;    &#x5FEB;&#x8FC7;&#x4E2D;&#x79CB;&#x4E86;&#xFF0C;&#x5C0F;&#x6768;&#x51C6;&#x5907;&#x56DE;&#x5BB6;&#x56E2;&#x5706;&#xFF0C;&#x56E0;&#x4E3A;&#x5BB6;&#x8DDD;&#x79BB;&#x81EA;&#x5DF1;&#x4E0A;&#x73ED;&#x7684;&#x5730;&#x65B9;500KM&#xFF0C;&#x6240;&#x4EE5;&#x5C0F;&#x6768;&#x60F3;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x4FBF;&#x5B9C;&#x7684;&#x56DE;&#x5BB6;&#x65B9;&#x5F0F;&#xFF0C;&#x5C0F;&#x6768;&#x8C03;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#x53EF;&#x9009;&#x62E9;&#x7684;&#x51FA;&#x884C;&#x6709;&#x4E09;&#x79CD;&#xFF0C;&#x4E00;&#x505A;&#x98DE;&#x673A;&#xFF0C;&#x4E8C;&#x81EA;&#x5DF1;&#x9A7E;&#x8F66;&#xFF0C;&#x4E09;&#x4E58;&#x706B;&#x8F66;&#x3002;&#x8FD9;&#x4E09;&#x79CD;&#x4E58;&#x5750;&#x65B9;&#x5F0F;&#x7684;&#x4EF7;&#x683C;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x5750;&#x98DE;&#x673A;&#x5927;&#x7EA6;&#x662F;&#x6CA1;&#x5343;&#x7C73;50&#x5143;&#xFF0C;&#x81EA;&#x5DF1;&#x9A7E;&#x8F66;&#x5927;&#x7EA6;&#x662F;&#x6BCF;&#x5343;&#x7C73;0.5&#x5143;&#xFF0C;&#x505A;&#x706B;&#x8F66;&#x5462;&#xFF0C;&#x6BCF;KM&#x5927;&#x7EA6;&#x662F;0.1&#x5143;&#xFF0C;&#x73B0;&#x5728;&#x5C31;&#x8BA9;&#x6211;&#x4EEC;&#x7528;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x4E00;&#x4E0B;&#x5C0F;&#x6768;&#x8981;&#x8BA1;&#x7B97;&#x7684;&#x56DE;&#x5BB6;&#x8D39;&#x7528;&#x5427;&#xFF01;</p>
+<ol>
+<li><p><strong>Strategy </strong>,&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;CalculateStrategy&#x63A5;&#x53E3;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">* &#x8BA1;&#x7B97;&#x63A5;&#x53E3;</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CalculateStrategy</span> </span>{</div><div class="line">   <span class="function"><span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span></span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p><strong>ConcreteStrategy</strong>,&#x65B0;&#x5EFA;CarStrategy&#x3001;PlaneStrategy&#x3001;TrainStrategy&#x5B9E;&#x73B0;&#x63A5;&#x53E3;CalculateStrategy</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">         <span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line">         <span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">* &#x81EA;&#x5DF1;&#x5F00;&#x8F66;  &#x6309;&#x6BCF;&#x516C;&#x91CC;0.5&#x5143;&#x8BA1;&#x7B97;</div><div class="line">*/</div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarStrategy</span> <span class="keyword">implements</span> <span class="title">CalculateStrategy</span> </span>{</div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">           <span class="keyword">return</span> (<span class="keyword">float</span>) <span class="number">0.5</span> * km;</div><div class="line">       }</div><div class="line">   }</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">package</span> iuni.life;</div><div class="line">  <span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">* &#x4E58;&#x98DE;&#x673A;  &#x6309;&#x6BCF;&#x516C;&#x91CC;50&#x5143;&#x8BA1;&#x7B97;</div><div class="line">*/</div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlaneStrategy</span> <span class="keyword">implements</span> <span class="title">CalculateStrategy</span> </span>{</div><div class="line">    <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">       <span class="keyword">return</span> <span class="number">50</span> * km;</div><div class="line">   }</div><div class="line">      }</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Created by  iuni.life on 16/9/5.</div><div class="line">   * yangfei&apos;s computer</div><div class="line">   * &#x4E58;&#x706B;&#x8F66;   &#x5927;&#x7EA6;&#x662F;&#x6BCF;&#x516C;&#x91CC;&#x6309;0.1&#x5143;&#x8BA1;&#x7B97;</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrainStrategy</span> <span class="keyword">implements</span> <span class="title">CalculateStrategy</span> </span>{</div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">          <span class="keyword">return</span> (<span class="keyword">float</span>) (<span class="number">0.1</span> * km);</div><div class="line">      }</div><div class="line">  }</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Context</strong> ,&#x65B0;&#x5EFA;Client</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">package</span> iuni.life;</div><div class="line">    <span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</div><div class="line">   CalculateStrategy calculateStrategy;</div><div class="line">   <span class="keyword">static</span> <span class="keyword">int</span> km = <span class="number">500</span>;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</div><div class="line">       Client client = <span class="keyword">new</span> Client();</div><div class="line">       <span class="comment">//&#x9009;&#x62E9;&#x4E58;&#x98DE;&#x673A;&#x7684;&#x65B9;&#x5F0F;</span></div><div class="line">       client.setCalculateStrategy(<span class="keyword">new</span> PlaneStrategy());</div><div class="line">       System.out.println(<span class="string">&quot;&#x4E58;&#x5750;&#x98DE;&#x673A;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + client.getPrice(km));</div><div class="line">       <span class="comment">//&#x9009;&#x62E9;&#x4E58;&#x706B;&#x8F66;&#x7684;&#x65B9;&#x5F0F;</span></div><div class="line">       client.setCalculateStrategy(<span class="keyword">new</span> TrainStrategy());</div><div class="line">       System.out.println(<span class="string">&quot;&#x4E58;&#x5750;&#x706B;&#x8F66;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + client.getPrice(km));</div><div class="line">       <span class="comment">//&#x9009;&#x62E9;&#x81EA;&#x5DF1;&#x9A7E;&#x8F66;&#x7684;&#x65B9;&#x5F0F;</span></div><div class="line">       client.setCalculateStrategy(<span class="keyword">new</span> CarStrategy());</div><div class="line">       System.out.println(<span class="string">&quot;&#x81EA;&#x5DF1;&#x9A7E;&#x8F66;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + client.getPrice(km));</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * &#x8BBE;&#x7F6E;&#x51FA;&#x884C;&#x65B9;&#x5F0F;</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> calculateStrategy</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCalculateStrategy</span><span class="params">(CalculateStrategy calculateStrategy)</span> </span>{</div><div class="line">       <span class="keyword">this</span>.calculateStrategy = calculateStrategy;</div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * &#x83B7;&#x5F97;&#x51FA;&#x884C;&#x8D39;&#x7528;</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> km</div><div class="line">    * <span class="doctag">@return</span></div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPrice</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">       <span class="keyword">return</span> calculateStrategy.price(km);</div><div class="line">   }</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</p>
+<p><img src="/2016/09/01/&#x7B56;&#x7565;&#x6A21;&#x5F0F;/clns2.png" alt="clns2"></p>
+</li>
+</ol>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;</h2><h3 id="&#x4F18;&#x70B9;"><a href="#&#x4F18;&#x70B9;" class="headerlink" title="&#x4F18;&#x70B9;"></a>&#x4F18;&#x70B9;</h3><ul>
+<li>&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x5207;&#x6362;&#x3002;</li>
+<li>&#x7ED3;&#x6784;&#x6E05;&#x6670;&#x660E;&#x4E86;&#xFF0C;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x76F4;&#x89C2;&#x3002;</li>
+<li>&#x64CD;&#x4F5C;&#x5C01;&#x88C5;&#x66F4;&#x4E3A;&#x5F7B;&#x5E95;&#xFF0C;&#x7B80;&#x5316;&#x4E86;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>&#x8026;&#x5408;&#x5EA6;&#x5927;&#x5927;&#x964D;&#x4F4E;&#xFF0C;&#x53EA;&#x8981;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x5373;&#x53EF;&#xFF0C;&#x65E0;&#x9700;&#x505A;&#x5176;&#x4ED6;&#x4FEE;&#x6539;&#x3002;</li>
+</ul>
+<h3 id="&#x7F3A;&#x70B9;"><a href="#&#x7F3A;&#x70B9;" class="headerlink" title="&#x7F3A;&#x70B9;"></a>&#x7F3A;&#x70B9;</h3><ul>
+<li>&#x968F;&#x7740;&#x7B56;&#x7565;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x7B56;&#x7565;&#x7C7B;&#x4F1A;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;&#x7B56;&#x7565;&#x90FD;&#x8981;&#x66B4;&#x9732;&#x51FA;&#x53BB;&#x3002;</li>
+</ul>
+<h2 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x62D3;&#x5C55;"><a href="#&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x62D3;&#x5C55;" class="headerlink" title="&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x62D3;&#x5C55;"></a>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x62D3;&#x5C55;</h2><ul>
+<li><p>&#x7B56;&#x7565;&#x679A;&#x4E3E;</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6539;&#x6210;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li><p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Calculator {</div><div class="line">   <span class="comment">//&#x81EA;&#x9A7E;</span></div><div class="line">   CAR {</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">           <span class="keyword">return</span> (<span class="keyword">float</span>) <span class="number">0.5</span> * km;</div><div class="line">       }</div><div class="line">   },</div><div class="line">   PLANE {<span class="comment">//&#x98DE;&#x673A;</span></div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">           <span class="keyword">return</span> (<span class="keyword">float</span>) <span class="number">50</span> * km;</div><div class="line">       }</div><div class="line">   },</div><div class="line">   TRAIN {<span class="comment">//&#x706B;&#x8F66;</span></div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span> </span>{</div><div class="line">           <span class="keyword">return</span> (<span class="keyword">float</span>) <span class="number">0.1</span> * km;</div><div class="line">       }</div><div class="line">   };</div><div class="line"></div><div class="line">   Calculator() {</div><div class="line"></div><div class="line">   }</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">float</span> <span class="title">price</span><span class="params">(<span class="keyword">int</span> km)</span></span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4FEE;&#x6539;Client</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">* Created by  iuni.life on 16/9/5.</div><div class="line">* yangfei&apos;s computer</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> km = <span class="number">500</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</div><div class="line">        System.out.println(<span class="string">&quot;&#x4E58;&#x5750;&#x98DE;&#x673A;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + Calculator.PLANE.price(km));</div><div class="line">        System.out.println(<span class="string">&quot;&#x4E58;&#x5750;&#x706B;&#x8F66;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + Calculator.TRAIN.price(km));</div><div class="line">        System.out.println(<span class="string">&quot;&#x81EA;&#x5DF1;&#x9A7E;&#x8F66;&#x9700;&#x8981;&#x7684;&#x8D39;&#x7528;&#x4E3A;:&#xFFE5;&quot;</span> + Calculator.CAR.price(km));</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;</p>
+<p> <img src="/2016/09/01/&#x7B56;&#x7565;&#x6A21;&#x5F0F;/clns2.png" alt="clns2">&#x200B;</p>
+</li>
+</ol>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF1A;</p>
+</li>
+<li><p>&#x8BE5;&#x4F8B;&#x5B50;&#x7684;Calculator&#x662F;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x3002;</p>
+</li>
+<li><p>Calculator&#x662F;&#x4E00;&#x4E2A;&#x6D53;&#x7F29;&#x4E86;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x7684;&#x679A;&#x4E3E;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;:</strong></p>
+<p>&#x7B56;&#x7565;&#x679A;&#x4E3E;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x4F18;&#x79C0;&#x548C;&#x65B9;&#x4FBF;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x53D7;&#x5230;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x6BCF;&#x4E2A;&#x679A;&#x4E3E;&#x9879;&#x90FD;&#x662F;public&#x3001;final&#x3001;static&#x7684;&#xFF0C;&#x62D3;&#x5C55;&#x6027;&#x53D7;&#x5230;&#x4E86;&#x4E00;&#x5B9A;&#x7684;&#x7EA6;&#x675F;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x679A;&#x4E3E;&#x7B56;&#x7565;&#x4E00;&#x822C;&#x62C5;&#x5F53;&#x4E0D;&#x7ECF;&#x5E38;&#x53D1;&#x751F;&#x53D8;&#x7684;&#x89D2;&#x8272;&#x3002;</p>
+</li>
+</ul>
+<h2 id="&#x540E;&#x8BB0;"><a href="#&#x540E;&#x8BB0;" class="headerlink" title="&#x540E;&#x8BB0;"></a>&#x540E;&#x8BB0;</h2><p>&#x200B;    &#x6587;&#x7AE0;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#xFF0C;&#x671B;&#x5927;&#x5BB6;&#x591A;&#x591A;&#x6307;&#x70B9;&#xFF0C;&#x5171;&#x540C;&#x5B66;&#x4E60;&#xFF0C;&#x5171;&#x540C;&#x8FDB;&#x6B65;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li><strong><em>&lt;&lt;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x8749;&gt;&gt;</em></strong>  &#x79E6;&#x5C0F;&#x6CE2; &#x8457;</li>
+</ul>
+<h2 id="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"><a href="#&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"></a>&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</h2><p>&#x5982;&#x60F3;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x9605;&#x8BFB;&#x4F53;&#x9A8C;&#xFF0C;&#x8BF7;&#x8BBF;&#x95EE;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x7F51;&#x7AD9;&#xFF1A;<a href="http://www.iuni.life" target="_blank" rel="external">iuni.life</a></p>
+
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://iuni.life/2016/09/01/策略模式/" target="_blank" rel="external">http://iuni.life/2016/09/01/策略模式/</a>
+                </p>
+                <footer><cite><a href="http://iuni.life">@iuni</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/09/08/CommandPattern/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">命令模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/08/31/Java注解三/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java注解三</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="策略模式" data-title="策略模式" data-url="http://iuni.life/2016/09/01/策略模式/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iuni1314"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "策略模式",
+    pic: "/img/2.png",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://iuni.life/2016/09/01/策略模式/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260329340&web_id=1260329340"></script>
+
+
+
+
+
+</body>
+</html>

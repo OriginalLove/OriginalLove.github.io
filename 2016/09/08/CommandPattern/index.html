@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>命令模式 | iuni | 生活有你才有爱(iuni.life)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Java 设计模式">
+  <meta name="description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x662F;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;(Command Pattern)&amp;#x3002;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令模式">
+<meta property="og:url" content="http://iuni.life/2016/09/08/CommandPattern/index.html">
+<meta property="og:site_name" content="iuni">
+<meta property="og:description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x662F;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;(Command Pattern)&amp;#x3002;">
+<meta property="og:image" content="http://iuni.life/2016/09/08/CommandPattern/mlms1.png">
+<meta property="og:image" content="http://iuni.life/2016/09/08/CommandPattern/mlms2.png">
+<meta property="og:updated_time" content="2016-10-17T07:40:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="命令模式">
+<meta name="twitter:description" content="&amp;#x6458;&amp;#x8981;:
+&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x662F;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;(Command Pattern)&amp;#x3002;">
+<meta name="twitter:image" content="http://iuni.life/2016/09/08/CommandPattern/mlms1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x662F;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;(Command Pattern)&amp;#x3002;&lt;/p&gt;">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/2.png"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">iuni.life</h5>
+        <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              归档
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/OriginalLove" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://weibo.com/u/3219891670" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>iuni &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">命令模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">命令模式</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-09-08T01:29:13.000Z" itemprop="datePublished" class="page-time">
+  2016-09-08
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-CommandPattern" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">命令模式介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">命令模式定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">命令模式使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">命令模式通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">命令模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令模式优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">命令模式优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">8.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">10.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong>&#x6458;&#x8981;:</strong></p>
+<p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x662F;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;(Command Pattern)&#x3002;</p>
+  <a id="more"></a>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6DF1;&#xFF0C;&#x94C1;&#x6775;&#x78E8;&#x6210;&#x9488;&#xFF0C;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6C34;&#x6EF4;&#x77F3;&#x7A7F;&#x3002;&#x5B66;&#x4E60;&#x4E5F;&#x8981;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#xFF0C;&#x624D;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x91CF;&#x53D8;&#x4FC3;&#x6210;&#x8D28;&#x53D8;&#x3002;&#x5728;&#x524D;&#x8FDB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8981;&#x4FDD;&#x6301;&#x597D;&#x826F;&#x597D;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x6025;&#x4E0D;&#x71E5;&#xFF0C;&#x811A;&#x8E0F;&#x5B9E;&#x5730;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x4E2A;&#x811A;&#x5370;&#x3002;</p>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4ECB;&#x7ECD;</h2><p>&#x200B;    &#x547D;&#x4EE4;&#x6A21;&#x5F0F;(Command Pattern)&#x662F;&#x4E00;&#x79CD;<strong>&#x884C;&#x4E3A;&#x578B;</strong>&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;&#x662F;&#x4E00;&#x79CD;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x6A21;&#x5F0F;&#x3002;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x76F8;&#x8F83;&#x4E8E;&#x5176;&#x4ED6;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x66F4;&#x4E3A;&#x7075;&#x6D3B;&#x591A;&#x53D8;&#x3002;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x542C;&#x540D;&#x5B57;&#x5C31;&#x77E5;&#x9053;&#x5176;&#x5173;&#x952E;&#x70B9;&#x5C31;&#x662F;&#x547D;&#x4EE4;&#xFF0C;&#x5728;GUI&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x7684;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#x4E00;&#x70B9;&#xFF0C;&#x6BD4;&#x5982;:&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#x7684;&#x70B9;&#x51FB;&#x662F;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x5B9A;&#x4E49;</h2><p>&#x200B;    &#x5C06;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;&#x4F60;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x53C2;&#x6570;&#x5316;&#xFF0C;&#x5BF9;&#x8BF7;&#x6C42;&#x6392;&#x961F;&#x6216;&#x8005;&#x8BB0;&#x5F55;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x547D;&#x4EE4;&#x7684;&#x64A4;&#x9500;&#x548C;&#x6062;&#x590D;&#x529F;&#x80FD;&#x3002;</p>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x573A;&#x666F;</h2><ul>
+<li>&#x4F7F;&#x7528;&#x573A;&#x666F;&#x975E;&#x5E38;&#x5E7F;&#x6CDB;&#xFF0C;&#x53EA;&#x8981;&#x4F60;&#x8BA4;&#x4E3A;&#x662F;&#x547D;&#x4EE4;&#x7684;&#x5730;&#x65B9;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x3002;</li>
+<li>&#x89E6;&#x53D1;&#x2014;&#x2014;&#x53CD;&#x9988;&#x673A;&#x5236;&#x7684;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p> <img src="/2016/09/08/CommandPattern/mlms1.png" alt="mlms1"></p>
+<p><strong>&#x8BF4;&#x660E;&#xFF1A;</strong></p>
+<ul>
+<li><p><strong>Receiver</strong></p>
+<p>&#x63A5;&#x6536;&#x89D2;&#x8272;&#xFF0C;&#x6267;&#x884C;&#x5177;&#x4F53;&#x903B;&#x8F91;&#x7684;&#x89D2;&#x8272;&#x3002;</p>
+</li>
+<li><p><strong>Command</strong></p>
+<p>&#x547D;&#x4EE4;&#x89D2;&#x8272;&#xFF0C;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x6240;&#x6709;&#x547D;&#x4EE4;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x58F0;&#x660E;&#xFF0C;&#x662F;&#x6240;&#x6709;&#x5177;&#x4F53;&#x547D;&#x4EE4;&#x7C7B;&#x7684;&#x62BD;&#x8C61;&#x63A5;&#x53E3;&#x3002;</p>
+</li>
+<li><p><strong>ConcreteCommand</strong></p>
+<p>&#x5177;&#x4F53;&#x7684;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#xFF0C;&#x5B9E;&#x73B0;Command&#x63A5;&#x53E3;&#x3002;</p>
+</li>
+<li><p><strong>Invoker</strong></p>
+<p>&#x8C03;&#x7528;&#x8005;&#x89D2;&#x8272;&#xFF0C;&#x63A5;&#x6536;&#x5230;&#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x6267;&#x884C;&#x547D;&#x4EE4;</p>
+</li>
+<li><p><strong>Client</strong></p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x89D2;&#x8272;&#x3002;</p>
+</li>
+</ul>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</h2><p>&#x200B;    &#x5728;&#x5B89;&#x5353;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F1A;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C31;&#x7528;&#x5F00;&#x53D1;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;&#x4E3A;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#x3002;</p>
+<ol>
+<li><p>Receiver&#x63A5;&#x6536;&#x8005;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> * &#x63A5;&#x53D7;&#x8005;&#x89D2;&#x8272;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Receiver</span> </span>{</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qQLogin</span><span class="params">()</span> </span>{</div><div class="line">        System.out.println(<span class="string">&quot;QQ&#x767B;&#x5F55;&quot;</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">weChatLogin</span><span class="params">()</span> </span>{</div><div class="line">        System.out.println(<span class="string">&quot;&#x5FAE;&#x4FE1;&#x767B;&#x5F55;&quot;</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">weiBoLogin</span><span class="params">()</span> </span>{</div><div class="line">        System.out.println(<span class="string">&quot;&#x65B0;&#x6D6A;&#x5FAE;&#x535A;&#x767B;&#x5F55;&quot;</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">baiDuLogin</span><span class="params">()</span> </span>{</div><div class="line">        System.out.println(<span class="string">&quot;&#x767E;&#x5EA6;&#x767B;&#x5F55;&quot;</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>Command &#x62BD;&#x8C61;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/9/22.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> * &#x62BD;&#x8C61;&#x547D;&#x4EE4;&#x89D2;&#x8272;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>{</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>QQLogin &#x5177;&#x4F53;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QQLogin</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>{</div><div class="line">    <span class="keyword">private</span> Receiver receiver;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">QQLogin</span><span class="params">(Receiver receiver)</span> </span>{</div><div class="line">        <span class="keyword">this</span>.receiver = receiver;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>{</div><div class="line">        receiver.qQLogin();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>WeChatLogin &#x5177;&#x4F53;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeChatLogin</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>{</div><div class="line">    <span class="keyword">private</span> Receiver receiver;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WeChatLogin</span><span class="params">(Receiver receiver)</span> </span>{</div><div class="line">        <span class="keyword">this</span>.receiver = receiver;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>{</div><div class="line">        receiver.weChatLogin();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>WeiBoLogin &#x5177;&#x4F53;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> * &#x5177;&#x4F53;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x7C7B;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeiBoLogin</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>{</div><div class="line">    <span class="keyword">private</span> Receiver receiver;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WeiBoLogin</span><span class="params">(Receiver receiver)</span> </span>{</div><div class="line">        <span class="keyword">this</span>.receiver = receiver;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>{</div><div class="line">        receiver.weiBoLogin();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>BaiduLogin &#x5177;&#x4F53;&#x547D;&#x4EE4;&#x89D2;&#x8272;&#x3002;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaiduLogin</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>{</div><div class="line">    <span class="keyword">private</span> Receiver receiver;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaiduLogin</span><span class="params">(Receiver receiver)</span> </span>{</div><div class="line">        <span class="keyword">this</span>.receiver = receiver;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>{</div><div class="line">        receiver.baiDuLogin();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x200B;</p>
+</li>
+<li><p>Client &#x5BA2;&#x6237;&#x7AEF;&#x89D2;&#x8272;&#x7C7B;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iuni.life;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by  iuni.life on 2016/10/17.</div><div class="line"> * yangfei&apos;s computer</div><div class="line"> * &#x5BA2;&#x6237;&#x7AEF;&#x89D2;&#x8272;&#x7C7B;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</div><div class="line">        <span class="comment">//&#x521B;&#x5EFA;&#x63A5;&#x53D7;&#x8005;</span></div><div class="line">        Receiver receiver = <span class="keyword">new</span> Receiver();</div><div class="line">        <span class="comment">//&#x521B;&#x5EFA;&#x547D;&#x4EE4;&#x5BF9;&#x8C61;</span></div><div class="line">        Command QQCommand = <span class="keyword">new</span> QQLogin(receiver);</div><div class="line">        Command weChatCommand = <span class="keyword">new</span> WeChatLogin(receiver);</div><div class="line">        Command weiBoCommand = <span class="keyword">new</span> WeiBoLogin(receiver);</div><div class="line">        Command baiduCommand = <span class="keyword">new</span> BaiduLogin(receiver);</div><div class="line">        <span class="comment">//&#x521B;&#x5EFA;&#x8BF7;&#x6C42;&#x8005;</span></div><div class="line">        Invoker invoker = <span class="keyword">new</span> Invoker(QQCommand);</div><div class="line">        invoker = <span class="keyword">new</span> Invoker(weChatCommand);</div><div class="line">        invoker = <span class="keyword">new</span> Invoker(weiBoCommand);</div><div class="line">        invoker = <span class="keyword">new</span> Invoker(baiduCommand);</div><div class="line">        <span class="comment">//&#x6267;&#x884C;&#x65B9;&#x6CD5;</span></div><div class="line">        invoker.allAction();</div><div class="line">        System.out.println(<span class="string">&quot;------------------&#x6211;&#x662F;&#x534E;&#x4E3D;&#x7684;&#x5206;&#x5272;&#x7EBF;-------------------------------&quot;</span>);</div><div class="line">        invoker.removeAction(baiduCommand);</div><div class="line">        System.out.println(<span class="string">&quot;------------------&#x6211;&#x662F;&#x534E;&#x4E3D;&#x7684;&#x5206;&#x5272;&#x7EBF;-------------------------------&quot;</span>);</div><div class="line">        invoker.allAction();</div><div class="line"></div><div class="line"></div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+<p> <img src="/2016/09/08/CommandPattern/mlms2.png" alt="mlms2"></p>
+</li>
+</ol>
+<h2 id="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"><a href="#&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;" class="headerlink" title="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"></a>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;</h2><h3 id="&#x4F18;&#x70B9;"><a href="#&#x4F18;&#x70B9;" class="headerlink" title="&#x4F18;&#x70B9;"></a>&#x4F18;&#x70B9;</h3><ul>
+<li><p><strong>&#x7C7B;&#x95F4;&#x89E3;&#x8026;</strong></p>
+<p>&#x8C03;&#x7528;&#x8005;&#x4E0E;&#x63A5;&#x6536;&#x8005;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;&#x8C03;&#x7528;&#x8005;&#x5B9E;&#x73B0;&#x529F;&#x80FD;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x8C03;&#x7528;Command&#x62BD;&#x8C61;&#x7C7B;&#x7684;execute&#x65B9;&#x6CD5;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x5230;&#x5E95;&#x662F;&#x54EA;&#x4E2A;&#x63A5;&#x6536;&#x8005;&#x6267;&#x884C;&#x3002;</p>
+</li>
+<li><p><strong>&#x53EF;&#x62D3;&#x5C55;&#x6027;</strong></p>
+<p>Command&#x7684;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7684;&#x62D3;&#x5C55;&#xFF0C;&#x800C;&#x8C03;&#x7528;&#x8005;Invoker&#x548C;&#x9AD8;&#x5C42;&#x6B21;&#x7684;&#x6A21;&#x5757;Client&#x4E0D;&#x4EA7;&#x751F;&#x4E25;&#x91CD;&#x7684;&#x4EE3;&#x7801;&#x8026;&#x5408;&#x3002;</p>
+</li>
+<li><p><strong>&#x7ED3;&#x5408;&#x5176;&#x4ED6;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4F1A;&#x66F4;&#x4F18;&#x79C0;</strong></p>
+<p>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;&#xFF0C;&#x5B9E;&#x73B0;&#x547D;&#x4EE4;&#x65CF;&#x89E3;&#x6790;&#x4EFB;&#x52A1;&#xFF1B;&#x7ED3;&#x5408;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;Command&#x5B50;&#x7C7B;&#x81A8;&#x80C0;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+</li>
+</ul>
+<h3 id="&#x7F3A;&#x70B9;"><a href="#&#x7F3A;&#x70B9;" class="headerlink" title="&#x7F3A;&#x70B9;"></a>&#x7F3A;&#x70B9;</h3><ul>
+<li>&#x5982;&#x679C;&#x6709;N&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;Command&#x5B50;&#x7C7B;&#x5C31;&#x662F;N&#x4E2A;&#xFF0C;&#x5B50;&#x7C7B;&#x81A8;&#x80C0;&#x7684;&#x975E;&#x5E38;&#x5927;&#x3002;</li>
+</ul>
+<h2 id="&#x540E;&#x8BB0;"><a href="#&#x540E;&#x8BB0;" class="headerlink" title="&#x540E;&#x8BB0;"></a>&#x540E;&#x8BB0;</h2><p>&#x200B;    &#x6587;&#x7AE0;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#xFF0C;&#x671B;&#x5927;&#x5BB6;&#x591A;&#x591A;&#x6307;&#x70B9;&#xFF0C;&#x5171;&#x540C;&#x5B66;&#x4E60;&#xFF0C;&#x5171;&#x540C;&#x8FDB;&#x6B65;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li><strong><em>&lt;&lt;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x8749;&gt;&gt;</em></strong>  &#x79E6;&#x5C0F;&#x6CE2; &#x8457;</li>
+</ul>
+<h2 id="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"><a href="#&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"></a>&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</h2><p>&#x5982;&#x60F3;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x9605;&#x8BFB;&#x4F53;&#x9A8C;&#xFF0C;&#x8BF7;&#x8BBF;&#x95EE;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x7F51;&#x7AD9;&#xFF1A;<a href="http://www.iuni.life" target="_blank" rel="external">iuni.life</a></p>
+
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://iuni.life/2016/09/08/CommandPattern/" target="_blank" rel="external">http://iuni.life/2016/09/08/CommandPattern/</a>
+                </p>
+                <footer><cite><a href="http://iuni.life">@iuni</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/11/27/代理模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">代理模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/09/01/策略模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">策略模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CommandPattern" data-title="命令模式" data-url="http://iuni.life/2016/09/08/CommandPattern/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iuni1314"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "命令模式",
+    pic: "/img/2.png",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://iuni.life/2016/09/08/CommandPattern/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260329340&web_id=1260329340"></script>
+
+
+
+
+
+</body>
+</html>
