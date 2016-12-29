@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>工厂方法模式 | iuni | 生活有你才有爱(iuni.life)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="theme-color" content="#3F51B5">
-  
-  
-  <meta name="keywords" content="Java 设计模式">
-  <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x200B;    &amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>工厂方法模式 | iuni | 生活有你才有爱(iuni.life)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java 设计模式">
+    <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x200B;    &amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工厂方法模式">
 <meta property="og:url" content="http://iuni.life/2016/08/12/工厂方法模式/index.html">
@@ -25,86 +35,78 @@
 <meta name="twitter:title" content="工厂方法模式">
 <meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x200B;    &amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6">
 <meta name="twitter:image" content="http://iuni.life/2016/08/12/工厂方法模式/factoryUml.png">
-  
-    <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
-  
-  <meta name="summary" content="&lt;h2 id=&quot;&amp;#x524D;&amp;#x8A00;&quot;&gt;&lt;a href=&quot;#&amp;#x524D;&amp;#x8A00;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x524D;&amp;#x8A00;&quot;&gt;&lt;/a&gt;&amp;#x524D;&amp;#x8A00;&lt;/h2&gt;&lt;p&gt;&amp;#x200B;    &amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6EF4;&amp;#x77F3;&amp;#x7A7F;&amp;#x3002;&amp;#x5B66;&amp;#x4E60;&amp;#x4E5F;&amp;#x8981;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6162;&amp;#x6162;&amp;#x79EF;&amp;#x7D2F;&amp;#xFF0C;&amp;#x624D;&amp;#x80FD;&amp;#x8FBE;&amp;#x5230;&amp;#x4EE5;&amp;#x91CF;&amp;#x53D8;&amp;#x4FC3;&amp;#x6210;&amp;#x8D28;&amp;#x53D8;&amp;#x3002;&amp;#x5728;&amp;#x524D;&amp;#x8FDB;&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x4E5F;&amp;#x8981;&amp;#x4FDD;&amp;#x6301;&amp;#x597D;&amp;#x826F;&amp;#x597D;&amp;#x7684;&amp;#x5FC3;&amp;#x6001;&amp;#xFF0C;&amp;#x4E0D;&amp;#x6025;&amp;#x4E0D;&amp;#x71E5;&amp;#xFF0C;&amp;#x811A;&amp;#x8E0F;&amp;#x5B9E;&amp;#x5730;&amp;#xFF0C;&amp;#x4E00;&amp;#x6B65;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x5370;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x6A21;&amp;#x5F0F;-&amp;#x4ECB;&amp;#x7ECD;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x6A21;&amp;#x5F0F;-&amp;#x4ECB;&amp;#x7ECD;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x6A21;&amp;#x5F0F; &amp;#x4ECB;&amp;#x7ECD;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x6A21;&amp;#x5F0F; &amp;#x4ECB;&amp;#x7ECD;&lt;/h2&gt;&lt;p&gt;&amp;#x200B;    &amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF08;Factory Pattern&amp;#xFF09;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&lt;strong&gt;&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&lt;/strong&gt;&amp;#xFF0C;&amp;#x662F;&amp;#x65E5;&amp;#x5E38;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x9891;&amp;#x7387;&amp;#x8F83;&amp;#x9AD8;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;&amp;#x4E0B;&amp;#x9762;&amp;#x5C31;&amp;#x8981;&amp;#x6211;&amp;#x4EEC;&amp;#x4E00;&amp;#x8D77;&amp;#x53BB;&amp;#x4E86;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;&amp;#x5DE5;&amp;#x5382;&amp;#x65B9;&amp;#x6CD5;&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;&lt;/p&gt;">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
+    
+        <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
-  <div id="loading" class="active"></div>
+    <div id="loading" class="active"></div>
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/2.png"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">iuni.life</h5>
-        <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
-      </hgroup>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/2.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iuni.life</h5>
+          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/OriginalLove" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/3219891670" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
     </div>
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              主页
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              归档
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              标签
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/OriginalLove" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="http://weibo.com/u/3219891670" target="_blank" >
-              <i class="icon icon-lg icon-weibo"></i>
-              Weibo
-            </a>
-          </li>
-      
-    </ul>
+</aside>
 
-    <footer class="footer">
-  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>iuni &copy; 2016</p>
-  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
-  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
-  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
-</footer>
-
-  </div>
-</div>
-
-  </nav>
-  <main id="main">
-    <header class="top-header" id="header">
+    <main id="main">
+        <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
@@ -115,94 +117,69 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         
     </div>
 </header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">工厂方法模式</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-08-12T07:32:47.000Z" itemprop="datePublished" class="page-time">
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">工厂方法模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-12T07:32:47.000Z" itemprop="datePublished" class="page-time">
   2016-08-12
 </time>
 
 
-        
-    </h5>
-  </div>
+            
+        </h5>
+    </div>
+
+    
+
 </header>
 
-    <div class="container body-wrap">
-      <article id="post-工厂方法模式" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
 
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-            <div class="post-share" id="post-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式-介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">工厂方法模式 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">工厂方法设计模式 定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">工厂方法设计模式 使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">工厂方法设计模式 通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">工厂方法模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式的优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">工厂方法模式的优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式的拓展"><span class="post-toc-number">8.</span> <span class="post-toc-text">工厂方法模式的拓展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">9.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">11.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
-            </nav>
+        </nav>
+    </aside>
+    
+<article id="post-工厂方法模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">工厂方法模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年08月12日 15:32" datetime="2016-08-12T07:32:47.000Z"  itemprop="datePublished">2016-08-12</time>
+
             
-        </aside>
 
-        <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent">
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6DF1;&#xFF0C;&#x94C1;&#x6775;&#x78E8;&#x6210;&#x9488;&#xFF0C;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6C34;&#x6EF4;&#x77F3;&#x7A7F;&#x3002;&#x5B66;&#x4E60;&#x4E5F;&#x8981;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#xFF0C;&#x624D;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x91CF;&#x53D8;&#x4FC3;&#x6210;&#x8D28;&#x53D8;&#x3002;&#x5728;&#x524D;&#x8FDB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8981;&#x4FDD;&#x6301;&#x597D;&#x826F;&#x597D;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x6025;&#x4E0D;&#x71E5;&#xFF0C;&#x811A;&#x8E0F;&#x5B9E;&#x5730;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x4E2A;&#x811A;&#x5370;&#x3002;</p>
 <h2 id="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;-&#x4ECB;&#x7ECD;"><a href="#&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;-&#x4ECB;&#x7ECD;" class="headerlink" title="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F; &#x4ECB;&#x7ECD;"></a>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F; &#x4ECB;&#x7ECD;</h2><p>&#x200B;    &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF08;Factory Pattern&#xFF09;&#x662F;&#x4E00;&#x79CD;<strong>&#x521B;&#x5EFA;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</strong>&#xFF0C;&#x662F;&#x65E5;&#x5E38;&#x5F00;&#x53D1;&#x4E2D;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x8F83;&#x9AD8;&#x7684;&#x4E00;&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;&#x4E0B;&#x9762;&#x5C31;&#x8981;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x53BB;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;</p>
 <a id="more"></a>
@@ -211,7 +188,13 @@
 <li>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;new&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6709;&#x9700;&#x8981;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x614E;&#x91CD;&#x7684;&#x8003;&#x8651;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x662F;&#x4E0D;&#x662F;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x907F;&#x514D;&#x4F7F;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x3002;</li>
 <li>&#x9700;&#x8981;&#x7075;&#x6D3B;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x6846;&#x67B6;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x91C7;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x3002;</li>
 </ul>
-<h2 id="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p><img src="/2016/08/12/&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;/factoryUml.png" alt="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;"></p>
+<h2 id="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2016/08/12/&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;/factoryUml.png" alt="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;" title="">
+                </div>
+                <div class="image-caption">&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;</div>
+            </figure>
 <p><strong>&#x8BF4;&#x660E;:</strong></p>
 <ul>
 <li><p><strong>Product</strong></p>
@@ -333,25 +316,93 @@
 </ul>
 <h2 id="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"><a href="#&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"></a>&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</h2><p><a href="http://www.iuni.life" target="_blank" rel="external">iuni.life</a></p>
 
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-09-01T02:29:50.000Z" itemprop="dateUpdated">2016年9月1日 10:29</time>
+</span><br>
+
+
+        原文地址：<a href="/2016/08/12/工厂方法模式/" target="_blank" rel="external">http://iuni.life/2016/08/12/工厂方法模式/</a>
+    </div>
+    <footer>
+        <a href="http://iuni.life">
+            <img src="/img/2.png" alt="iuni.life">
+            iuni.life
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
+
 
             
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
-            
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://iuni.life/2016/08/12/工厂方法模式/" target="_blank" rel="external">http://iuni.life/2016/08/12/工厂方法模式/</a>
-                </p>
-                <footer><cite><a href="http://iuni.life">@iuni</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iuni&source=&#x524D;&#x8A00;&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/12/工厂方法模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iuni&url=http://iuni.life/2016/08/12/工厂方法模式/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/12/工厂方法模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
   
-    <div class="waves-block waves-effect prev fl">
+    <div class="waves-block waves-effect prev">
       <a href="/2016/08/29/观察者模式/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">观察者模式</h4>
@@ -360,7 +411,7 @@
   
 
   
-    <div class="waves-block waves-effect next fr">
+    <div class="waves-block waves-effect next">
       <a href="/2016/08/08/原型模式/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Android 原型模式</h4>
@@ -370,91 +421,34 @@
 </nav>
 
 
-            
-            
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="工厂方法模式" data-title="工厂方法模式" data-url="http://iuni.life/2016/08/12/工厂方法模式/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"iuni1314"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="工厂方法模式" data-title="工厂方法模式" data-url="http://iuni.life/2016/08/12/工厂方法模式/"></div>
 </div>
-
-
-
-
-
-        </div>
-    </div>
-</article>
-    </div>
-  </main>
-<div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
 <script>
-var BLOG_SHARE = {
-    title: "工厂方法模式",
-    pic: "/img/2.png",
-    summary: document.getElementsByName('summary')[0].content,
-    url: "http://iuni.life/2016/08/12/工厂方法模式/index.html"
-};
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.3');
+
+
 </script>
-<div class="global-share" id="global-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
 
 
 
 
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
-        谢谢打赏~
+        谢谢大爷~
         <i class="icon icon-quote-right"></i>
     </h3>
     <ul class="reward-items">
@@ -474,18 +468,104 @@ var BLOG_SHARE = {
     </ul>
 </div>
 
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
-<script src="/js/main.js"></script>
 
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iuni &copy; 2015 - 2016</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iuni&source=&#x524D;&#x8A00;&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/12/工厂方法模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iuni&url=http://iuni.life/2016/08/12/工厂方法模式/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/12/工厂方法模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aQU7EMAwFUO5/6UFihQTT/u8MSJO8riraafKyMI6dj4/4enxdz/7+/enP+2dPk/dffGFgYLwt43F55e/MliC5j8bFwMA4gJEMcz3162C6zrv5LQYGBkaQ8CXIZ+8kwRcDAwOjDXzXE1qZKAYGBsbKJjZJBGdhOg/lL9iLY2BgvCGjbQz85/0f9jcwMDDehPEor5Xgmxfd6llhYGBszbguhLWTWOHlQbbIcDEwMLZg5KX8tjw3+9owWcTAwDiA0TYa82RxpQCXHFDDwMA4gZHXr5L41m5B26BfNwYwMDC2YLRbxzwra1ub7Yi/VA0xMDAOZswKZEmMzw9b3KSVGBgYWzPWh28ncZ1E5kH8ZikxMDA2YrQFr3wqKwtULwoGBsZhjPa4wwy20sj85SkGBsbWjOExrPgTSV8iaX+2C42BgbETo+1zrgw5G6s4M4KBgbEpIz8qkYTgtgGZJ4JRYQ4DA2NTRp605ZOehdS8MBf938DAwNiIkSdh7XY0edqmoTfvYGBgbMr464Cbl/6LzSoGBgbGKPCttBvzDW3RGMDAwNiIkRfC2sL9q0ZpG6sYGBj7MR7l1YbF9mhFu0AYGBgnMNoA1yaObQlvtjQYGBgnMPJPz9Ym+VreNrg5M4KBgbE1oy2E5YchWsbSLhwDA+N4RpK0Jc2G/Fd56xQDAwNjdqh0lgLO0k0MDIwTGO0m9lUd1DYxxcDAOJMxawwkqWHytVmBb9jlwMDAeD/GJ1zf4AbtaGNyAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.3"></script>
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<script type="text/template" id="search-tpl">
+<template id="search-tpl">
 <li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
+    <a href="{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
         <div class="flex-row flex-middle">
             <div class="tags ellipsis">
@@ -495,18 +575,16 @@ var BLOG_SHARE = {
         </div>
     </a>
 </li>
-</script>
+</template>
 
-<script src="/js/search.js"></script>
-
-
+<script src="/js/search.min.js?v=1.4.3" async></script>
 
 
 
-<script src="//s95.cnzz.com/z_stat.php?id=1260329340&web_id=1260329340"></script>
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 </body>

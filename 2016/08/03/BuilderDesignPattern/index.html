@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Android 建造者(Builder)模式 | iuni | 生活有你才有爱(iuni.life)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="theme-color" content="#3F51B5">
-  
-  
-  <meta name="keywords" content="Java 设计模式">
-  <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6EF4;&amp;#x77F3;">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android 建造者(Builder)模式 | iuni | 生活有你才有爱(iuni.life)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java 设计模式">
+    <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6EF4;&amp;#x77F3;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 建造者(Builder)模式">
 <meta property="og:url" content="http://iuni.life/2016/08/03/BuilderDesignPattern/index.html">
@@ -22,89 +32,78 @@
 <meta name="twitter:title" content="Android 建造者(Builder)模式">
 <meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6EF4;&amp;#x77F3;">
 <meta name="twitter:image" content="http://iuni.life/2016/08/03/BuilderDesignPattern/BuilderUml.png">
-  
-    <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
-  
-  <meta name="summary" content="&lt;h2 id=&quot;&amp;#x524D;&amp;#x8A00;&quot;&gt;&lt;a href=&quot;#&amp;#x524D;&amp;#x8A00;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x524D;&amp;#x8A00;&quot;&gt;&lt;/a&gt;&amp;#x524D;&amp;#x8A00;&lt;/h2&gt;&lt;p&gt;&amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6EF4;&amp;#x77F3;&amp;#x7A7F;&amp;#x3002;&amp;#x5B66;&amp;#x4E60;&amp;#x4E5F;&amp;#x8981;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6162;&amp;#x6162;&amp;#x79EF;&amp;#x7D2F;&amp;#xFF0C;&amp;#x624D;&amp;#x80FD;&amp;#x8FBE;&amp;#x5230;&amp;#x4EE5;&amp;#x91CF;&amp;#x53D8;&amp;#x4FC3;&amp;#x6210;&amp;#x8D28;&amp;#x53D8;&amp;#x3002;&amp;#x5728;&amp;#x524D;&amp;#x8FDB;&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x4E5F;&amp;#x8981;&amp;#x4FDD;&amp;#x6301;&amp;#x597D;&amp;#x826F;&amp;#x597D;&amp;#x7684;&amp;#x5FC3;&amp;#x6001;&amp;#xFF0C;&amp;#x4E0D;&amp;#x6025;&amp;#x4E0D;&amp;#x71E5;&amp;#xFF0C;&amp;#x811A;&amp;#x8E0F;&amp;#x5B9E;&amp;#x5730;&amp;#xFF0C;&amp;#x4E00;&amp;#x6B65;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x5370;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;Builder-Design-Pattern-&amp;#x4ECB;&amp;#x7ECD;&quot;&gt;&lt;a href=&quot;#Builder-Design-Pattern-&amp;#x4ECB;&amp;#x7ECD;&quot; class=&quot;headerlink&quot; title=&quot;Builder Design Pattern &amp;#x4ECB;&amp;#x7ECD;&quot;&gt;&lt;/a&gt;Builder Design Pattern &amp;#x4ECB;&amp;#x7ECD;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&amp;#x5EFA;&amp;#x9020;&amp;#x8005;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF08;Builder Pattern&amp;#xFF09;&amp;#x4E5F;&amp;#x53EB;&amp;#x505A;&amp;#x751F;&amp;#x6210;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;Builder Design pattern  &amp;#x662F;&amp;#x4E00;&amp;#x79CD;&lt;strong&gt;&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x6A21;&amp;#x5F0F;&lt;/strong&gt;&amp;#xFF0C;Builder&amp;#x6A21;&amp;#x5F0F;&amp;#x6240;&amp;#x89E3;&amp;#x51B3;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x4E0E;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x6709;&amp;#x5173;&amp;#x3002;&amp;#x5B83;&amp;#x5141;&amp;#x8BB8;&amp;#x7528;&amp;#x6237;&amp;#x5728;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x5185;&amp;#x90E8;&amp;#x6784;&amp;#x5EFA;&amp;#x7EC6;&amp;#x8282;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x66F4;&amp;#x7CBE;&amp;#x7EC6;&amp;#x7684;&amp;#x63A7;&amp;#x5236;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x6D41;&amp;#x7A0B;&amp;#xFF0C;Builder&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x5C06;&amp;#x6784;&amp;#x9020;&amp;#x590D;&amp;#x6742;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x548C;&amp;#x4ED6;&amp;#x7684;&amp;#x90E8;&amp;#x4EF6;&amp;#x89E3;&amp;#x8026;&amp;#x3002;Android &amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x6700;&amp;#x5E38;&amp;#x7528;&amp;#x7684;Builder&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;AlterDialog.Builder&amp;#x3002;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Builder &amp;#x6A21;&amp;#x5F0F;&amp;#x901A;&amp;#x5E38;&amp;#x662F;&amp;#x4EE5;&amp;#x9759;&amp;#x6001;&amp;#x5185;&amp;#x90E8;&amp;#x7C7B;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
+    
+        <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
-  <div id="loading" class="active"></div>
+    <div id="loading" class="active"></div>
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/2.png"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">iuni.life</h5>
-        <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
-      </hgroup>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/2.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iuni.life</h5>
+          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/OriginalLove" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/3219891670" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
     </div>
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              主页
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              归档
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              标签
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/OriginalLove" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="http://weibo.com/u/3219891670" target="_blank" >
-              <i class="icon icon-lg icon-weibo"></i>
-              Weibo
-            </a>
-          </li>
-      
-    </ul>
+</aside>
 
-    <footer class="footer">
-  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>iuni &copy; 2016</p>
-  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
-  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
-  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
-</footer>
-
-  </div>
-</div>
-
-  </nav>
-  <main id="main">
-    <header class="top-header" id="header">
+    <main id="main">
+        <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
@@ -115,94 +114,69 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         
     </div>
 </header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">Android 建造者(Builder)模式</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-08-03T05:56:23.000Z" itemprop="datePublished" class="page-time">
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 建造者(Builder)模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-03T05:56:23.000Z" itemprop="datePublished" class="page-time">
   2016-08-03
 </time>
 
 
-        
-    </h5>
-  </div>
+            
+        </h5>
+    </div>
+
+    
+
 </header>
 
-    <div class="container body-wrap">
-      <article id="post-BuilderDesignPattern" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
 
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-            <div class="post-share" id="post-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Builder-Design-Pattern-介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">Builder Design Pattern 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Builder-Design-Pattern-定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">Builder Design Pattern 定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Builder-Design-Pattern-使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">Builder Design Pattern 使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Builder-Design-Pattern-通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">Builder Design Pattern 通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Builder-Design-Pattern-使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">Builder Design Pattern 使用实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标准化的建造者（Builder）模式使用实例"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">标准化的建造者（Builder）模式使用实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一种简单的方式实现Builder模式"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">一种简单的方式实现Builder模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建造者（Builder）模式的优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">建造者（Builder）模式的优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">8.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
-            </nav>
+        </nav>
+    </aside>
+    
+<article id="post-BuilderDesignPattern"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 建造者(Builder)模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年08月03日 13:56" datetime="2016-08-03T05:56:23.000Z"  itemprop="datePublished">2016-08-03</time>
+
             
-        </aside>
 
-        <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent">
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6DF1;&#xFF0C;&#x94C1;&#x6775;&#x78E8;&#x6210;&#x9488;&#xFF0C;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6C34;&#x6EF4;&#x77F3;&#x7A7F;&#x3002;&#x5B66;&#x4E60;&#x4E5F;&#x8981;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#xFF0C;&#x624D;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x91CF;&#x53D8;&#x4FC3;&#x6210;&#x8D28;&#x53D8;&#x3002;&#x5728;&#x524D;&#x8FDB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8981;&#x4FDD;&#x6301;&#x597D;&#x826F;&#x597D;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x6025;&#x4E0D;&#x71E5;&#xFF0C;&#x811A;&#x8E0F;&#x5B9E;&#x5730;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x4E2A;&#x811A;&#x5370;&#x3002;</p>
 <h2 id="Builder-Design-Pattern-&#x4ECB;&#x7ECD;"><a href="#Builder-Design-Pattern-&#x4ECB;&#x7ECD;" class="headerlink" title="Builder Design Pattern &#x4ECB;&#x7ECD;"></a>Builder Design Pattern &#x4ECB;&#x7ECD;</h2><ul>
 <li><p>&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;&#xFF08;Builder Pattern&#xFF09;&#x4E5F;&#x53EB;&#x505A;&#x751F;&#x6210;&#x5668;&#x6A21;&#x5F0F;&#xFF0C;Builder Design pattern  &#x662F;&#x4E00;&#x79CD;<strong>&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;</strong>&#xFF0C;Builder&#x6A21;&#x5F0F;&#x6240;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x4E0E;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#x6709;&#x5173;&#x3002;&#x5B83;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5728;&#x4E0D;&#x77E5;&#x9053;&#x5185;&#x90E8;&#x6784;&#x5EFA;&#x7EC6;&#x8282;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x7CBE;&#x7EC6;&#x7684;&#x63A7;&#x5236;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x6D41;&#x7A0B;&#xFF0C;Builder&#x6A21;&#x5F0F;&#x662F;&#x4E3A;&#x4E86;&#x5C06;&#x6784;&#x9020;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;&#x548C;&#x4ED6;&#x7684;&#x90E8;&#x4EF6;&#x89E3;&#x8026;&#x3002;Android &#x4E2D;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x7528;&#x7684;Builder&#x6A21;&#x5F0F;&#x662F;AlterDialog.Builder&#x3002;</p>
@@ -220,7 +194,13 @@
 <li>&#x591A;&#x4E2A;&#x90E8;&#x4EF6;&#x6216;&#x96F6;&#x4EF6;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x88C5;&#x914D;&#x5230;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x4EA7;&#x751F;&#x7684;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#x65F6;&#x3002;</li>
 <li>&#x4EA7;&#x54C1;&#x7C7B;&#x975E;&#x5E38;&#x590D;&#x6742;&#xFF0C;&#x6216;&#x8005;&#x4EA7;&#x54C1;&#x7C7B;&#x4E2D;&#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x4E0D;&#x540C;&#x4EA7;&#x751F;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x6548;&#x80FD;&#x3002;</li>
 </ul>
-<h2 id="Builder-Design-Pattern-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#Builder-Design-Pattern-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="Builder Design Pattern &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>Builder Design Pattern &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p><img src="/2016/08/03/BuilderDesignPattern/BuilderUml.png" alt="Builder"></p>
+<h2 id="Builder-Design-Pattern-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#Builder-Design-Pattern-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="Builder Design Pattern &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>Builder Design Pattern &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2016/08/03/BuilderDesignPattern/BuilderUml.png" alt="Builder" title="">
+                </div>
+                <div class="image-caption">Builder</div>
+            </figure>
 <p><strong>&#x8BF4;&#x660E;&#xFF1A;</strong></p>
 <ul>
 <li><p><strong>Product&#x4EA7;&#x54C1;&#x7C7B;</strong><br> ConcreateBuilder &#x521B;&#x5EFA;&#x8BE5;&#x4EA7;&#x54C1;&#x7684;&#x5185;&#x90E8;&#x8868;&#x793A;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x5B83;&#x7684;&#x88C5;&#x914D;&#x8FC7;&#x7A0B;&#x3002;</p>
@@ -279,25 +259,93 @@
 <li><strong><em>&lt;&lt;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x8749;&gt;&gt;</em></strong>  &#x79E6;&#x5C0F;&#x6CE2; &#x8457;</li>
 </ul>
 
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-09-20T15:56:37.000Z" itemprop="dateUpdated">2016年9月20日 23:56</time>
+</span><br>
+
+
+        原文地址：<a href="/2016/08/03/BuilderDesignPattern/" target="_blank" rel="external">http://iuni.life/2016/08/03/BuilderDesignPattern/</a>
+    </div>
+    <footer>
+        <a href="http://iuni.life">
+            <img src="/img/2.png" alt="iuni.life">
+            iuni.life
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-设计模式/">Java 设计模式</a></li></ul>
+
 
             
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
-            
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://iuni.life/2016/08/03/BuilderDesignPattern/" target="_blank" rel="external">http://iuni.life/2016/08/03/BuilderDesignPattern/</a>
-                </p>
-                <footer><cite><a href="http://iuni.life">@iuni</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/03/BuilderDesignPattern/&title=《Android 建造者(Builder)模式》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/03/BuilderDesignPattern/&title=《Android 建造者(Builder)模式》 — iuni&source=&#x524D;&#x8A00;&#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6D..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/03/BuilderDesignPattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 建造者(Builder)模式》 — iuni&url=http://iuni.life/2016/08/03/BuilderDesignPattern/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/03/BuilderDesignPattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
   
-    <div class="waves-block waves-effect prev fl">
+    <div class="waves-block waves-effect prev">
       <a href="/2016/08/08/原型模式/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Android 原型模式</h4>
@@ -309,91 +357,34 @@
 </nav>
 
 
-            
-            
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="BuilderDesignPattern" data-title="Android 建造者(Builder)模式" data-url="http://iuni.life/2016/08/03/BuilderDesignPattern/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"iuni1314"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="BuilderDesignPattern" data-title="Android 建造者(Builder)模式" data-url="http://iuni.life/2016/08/03/BuilderDesignPattern/"></div>
 </div>
-
-
-
-
-
-        </div>
-    </div>
-</article>
-    </div>
-  </main>
-<div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
 <script>
-var BLOG_SHARE = {
-    title: "Android 建造者(Builder)模式",
-    pic: "/img/2.png",
-    summary: document.getElementsByName('summary')[0].content,
-    url: "http://iuni.life/2016/08/03/BuilderDesignPattern/index.html"
-};
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.3');
+
+
 </script>
-<div class="global-share" id="global-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
 
 
 
 
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
-        谢谢打赏~
+        谢谢大爷~
         <i class="icon icon-quote-right"></i>
     </h3>
     <ul class="reward-items">
@@ -413,18 +404,104 @@ var BLOG_SHARE = {
     </ul>
 </div>
 
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
-<script src="/js/main.js"></script>
 
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iuni &copy; 2015 - 2016</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/03/BuilderDesignPattern/&title=《Android 建造者(Builder)模式》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/03/BuilderDesignPattern/&title=《Android 建造者(Builder)模式》 — iuni&source=&#x524D;&#x8A00;&#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6D..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/03/BuilderDesignPattern/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 建造者(Builder)模式》 — iuni&url=http://iuni.life/2016/08/03/BuilderDesignPattern/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/03/BuilderDesignPattern/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aQW7DMAxE0dz/0inQVYvU6h9SCWDqexUYTqLnxUAi+Xjg6/l9vd75eZ98Jk++Pr/tkiFDxm0Zz+XFl7Ve0Po3ybeu1iZDhoxzGOuQvfoyicg0lNfUy/syZMiQsQzBWuym200ZMmTI4IHLN3AkuNNtqAwZMk5mdBbaqYml9zecxWXIkHFDRtoY+OTnN/Y3ZMiQcRPGM7z6pTfyZLwqGTJkjGaQYQh+n7QH1vha41OGDBmzGZ2/77yCTjHuj3+RIUPGaAY5spKvpYV+Hr489GXIkDGVURt34BvEPgaFtQwZMg5g1Epp/ZBdv6BgiylDhozRDLLQvaHZP8rKkCHjNEZt0CoNaN6wTP9RhgwZJzBqwZoeYvulfzTYIUOGjNEMUprnPxqPc+GGBMHLkCFjNoOEbG30YVdLAHViZciQMY4RzF/geN31ggKSDBkyRjP6xTWylM4AWTo0JkOGjKmM2lavX3TbNZYhQ4aM0xg8UtNiPW8AtKZFZMiQMY7RL9+nhbZa0KNKoQwZMkYzdn1Oh8M6L/HXMzJkyBjN6AQo397xuO8U/mTIkDGV0RnkSg+l6SgYD3EZMmTMZnQamZ853PJ2qQwZMmYz+JDWrjJZbajin/+VIUPGAYzO0RR1SkuDHcWzuAwZMg5m8KXzDV+6Bbx8oTJkyJABDqXpM2kJ7y2BK0OGjFsxaoMR6YL4svgwqwwZMk5gpAfIWgTzUOalt1Z/Q4YMGfdgfAF4adE/C3wu3AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.3"></script>
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<script type="text/template" id="search-tpl">
+<template id="search-tpl">
 <li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
+    <a href="{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
         <div class="flex-row flex-middle">
             <div class="tags ellipsis">
@@ -434,18 +511,16 @@ var BLOG_SHARE = {
         </div>
     </a>
 </li>
-</script>
+</template>
 
-<script src="/js/search.js"></script>
-
-
+<script src="/js/search.min.js?v=1.4.3" async></script>
 
 
 
-<script src="//s95.cnzz.com/z_stat.php?id=1260329340&web_id=1260329340"></script>
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 </body>

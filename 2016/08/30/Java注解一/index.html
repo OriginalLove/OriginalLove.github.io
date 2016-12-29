@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Java注解一 | iuni | 生活有你才有爱(iuni.life)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="theme-color" content="#3F51B5">
-  
-  
-  <meta name="keywords" content="Java进阶">
-  <meta name="description" content="&amp;#x6458;&amp;#x8981;&amp;#xFF1A;
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Java注解一 | iuni | 生活有你才有爱(iuni.life)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java进阶">
+    <meta name="description" content="&amp;#x6458;&amp;#x8981;&amp;#xFF1A;
 &amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x6709;&amp;#xFF1A;Java&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3001;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&amp;#x3001;&amp;#x53CD;&amp;#x5C04;&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java注解一">
@@ -26,86 +36,78 @@
 <meta name="twitter:description" content="&amp;#x6458;&amp;#x8981;&amp;#xFF1A;
 &amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x6709;&amp;#xFF1A;Java&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3001;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&amp;#x3001;&amp;#x53CD;&amp;#x5C04;&amp;#x">
 <meta name="twitter:image" content="http://iuni.life/2016/08/30/Java注解一/javaAnnotation1.png">
-  
-    <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
-  
-  <meta name="summary" content="&lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x6709;&amp;#xFF1A;Java&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3001;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&amp;#x3001;&amp;#x53CD;&amp;#x5C04;&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;&amp;#x6CE8;&amp;#x89E3;&amp;#x5904;&amp;#x7406;&amp;#x5668;&amp;#x3002;&lt;/p&gt;">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
+    
+        <link rel="alternative" href="/atom.xml" title="iuni" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
-  <div id="loading" class="active"></div>
+    <div id="loading" class="active"></div>
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/2.png"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">iuni.life</h5>
-        <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
-      </hgroup>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/2.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iuni.life</h5>
+          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/OriginalLove" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/3219891670" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
     </div>
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              主页
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              归档
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              标签
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/OriginalLove" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="http://weibo.com/u/3219891670" target="_blank" >
-              <i class="icon icon-lg icon-weibo"></i>
-              Weibo
-            </a>
-          </li>
-      
-    </ul>
+</aside>
 
-    <footer class="footer">
-  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>iuni &copy; 2016</p>
-  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
-  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
-  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
-</footer>
-
-  </div>
-</div>
-
-  </nav>
-  <main id="main">
-    <header class="top-header" id="header">
+    <main id="main">
+        <header class="top-header" id="header">
     <div class="flex-row">
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
@@ -116,94 +118,69 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
         
     </div>
 </header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">Java注解一</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-08-30T05:15:43.000Z" itemprop="datePublished" class="page-time">
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java注解一</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-30T05:15:43.000Z" itemprop="datePublished" class="page-time">
   2016-08-30
 </time>
 
 
-        
-    </h5>
-  </div>
+            
+        </h5>
+    </div>
+
+    
+
 </header>
 
-    <div class="container body-wrap">
-      <article id="post-Java注解一" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
 
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-            <div class="post-share" id="post-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解的介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">注解的介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解的作用"><span class="post-toc-number">3.</span> <span class="post-toc-text">注解的作用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#标准注解"><span class="post-toc-number">4.</span> <span class="post-toc-text">标准注解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解的基本语法"><span class="post-toc-number">5.</span> <span class="post-toc-text">注解的基本语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编写注解处理器"><span class="post-toc-number">6.</span> <span class="post-toc-text">编写注解处理器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用反射方式实现"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">使用反射方式实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">7.</span> <span class="post-toc-text">后记</span></a></li></ol>
-            </nav>
+        </nav>
+    </aside>
+    
+<article id="post-Java注解一"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java注解一</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016年08月30日 13:15" datetime="2016-08-30T05:15:43.000Z"  itemprop="datePublished">2016-08-30</time>
+
             
-        </aside>
 
-        <div class="post-main">
 
-            <div class="post-content" id="post-content" itemprop="postContent">
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
             <p><strong>&#x6458;&#x8981;&#xFF1A;</strong></p>
 <p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x6709;&#xFF1A;Java&#x6CE8;&#x89E3;&#x7684;&#x4ECB;&#x7ECD;&#x3001;&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#x3001;&#x53CD;&#x5C04;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x3002;</p>
 <a id="more"></a>
@@ -290,25 +267,94 @@
 <p>&#x56E0;&#x7BC7;&#x5E45;&#x539F;&#x56E0;&#xFF0C;apt&#x5B9E;&#x73B0;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#x8BE6;&#x89C1; <a href="http://iuni.life/2016/08/30/Java%E6%B3%A8%E8%A7%A3%E4%BA%8C/">Java&#x6CE8;&#x89E3;&#x4E8C;</a>&#x3002;</p>
 <h1 id="&#x540E;&#x8BB0;"><a href="#&#x540E;&#x8BB0;" class="headerlink" title="&#x540E;&#x8BB0;"></a>&#x540E;&#x8BB0;</h1><p>&#x6587;&#x7AE0;&#x6709;&#x4E0D;&#x8DB3;&#x4E4B;&#x540E;&#xFF0C;&#x8BF7;&#x5927;&#x5BB6;&#x591A;&#x591A;&#x6307;&#x6559;&#xFF0C;&#x5171;&#x540C;&#x5B66;&#x4E60;&#xFF0C;&#x5171;&#x540C;&#x8FDB;&#x6B65;&#x3002;</p>
 
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-09-05T04:37:09.000Z" itemprop="dateUpdated">2016年9月5日 12:37</time>
+</span><br>
+
+
+        原文地址：<a href="/2016/08/30/Java注解一/" target="_blank" rel="external">http://iuni.life/2016/08/30/Java注解一/</a>
+    </div>
+    <footer>
+        <a href="http://iuni.life">
+            <img src="/img/2.png" alt="iuni.life">
+            iuni.life
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+
 
             
-            <div class="post-reward">
-                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
-            </div>
-            
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://iuni.life/2016/08/30/Java注解一/" target="_blank" rel="external">http://iuni.life/2016/08/30/Java注解一/</a>
-                </p>
-                <footer><cite><a href="http://iuni.life">@iuni</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/30/Java注解一/&title=《Java注解一》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/30/Java注解一/&title=《Java注解一》 — iuni&source=&#x6458;&#x8981;&#xFF1A;
+&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x6..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/30/Java注解一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java注解一》 — iuni&url=http://iuni.life/2016/08/30/Java注解一/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/30/Java注解一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
   
-    <div class="waves-block waves-effect prev fl">
+    <div class="waves-block waves-effect prev">
       <a href="/2016/08/30/Java注解二/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Java注解二</h4>
@@ -317,7 +363,7 @@
   
 
   
-    <div class="waves-block waves-effect next fr">
+    <div class="waves-block waves-effect next">
       <a href="/2016/08/29/观察者模式/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">观察者模式</h4>
@@ -327,91 +373,34 @@
 </nav>
 
 
-            
-            
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Java注解一" data-title="Java注解一" data-url="http://iuni.life/2016/08/30/Java注解一/index.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"iuni1314"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="Java注解一" data-title="Java注解一" data-url="http://iuni.life/2016/08/30/Java注解一/"></div>
 </div>
-
-
-
-
-
-        </div>
-    </div>
-</article>
-    </div>
-  </main>
-<div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
 <script>
-var BLOG_SHARE = {
-    title: "Java注解一",
-    pic: "/img/2.png",
-    summary: document.getElementsByName('summary')[0].content,
-    url: "http://iuni.life/2016/08/30/Java注解一/index.html"
-};
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.3');
+
+
 </script>
-<div class="global-share" id="global-share">
-    <div class="tit">分享到：</div>
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
-          豆
-        </a>
-      </li>
-    </ul>
- </div>
 
 
 
 
-<div id="reward" class="reward-lay">
-    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
-        谢谢打赏~
+        谢谢大爷~
         <i class="icon icon-quote-right"></i>
     </h3>
     <ul class="reward-items">
@@ -431,18 +420,105 @@ var BLOG_SHARE = {
     </ul>
 </div>
 
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
-<script src="/js/main.js"></script>
 
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iuni &copy; 2015 - 2016</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iuni.life/2016/08/30/Java注解一/&title=《Java注解一》 — iuni&pic=http://iuni.life/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iuni.life/2016/08/30/Java注解一/&title=《Java注解一》 — iuni&source=&#x6458;&#x8981;&#xFF1A;
+&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x6..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iuni.life/2016/08/30/Java注解一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java注解一》 — iuni&url=http://iuni.life/2016/08/30/Java注解一/&via=http://iuni.life" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iuni.life/2016/08/30/Java注解一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aQW7DMAwEwPz/0+kLYu9SltIW45OBJOY4B4Ii+XrF1/vDdf1p8v3XjgsXF3eZ2wZIgl0/59N9FAUXF/cg91PIPMw1On/+jQ0XF/cXc/OUlLwGLi7u/+DmR6P2hXFxcX8PNzn8JKmqPURtPKvh4uIucPMu5b77Lf1dXFzcEfddXjvaIkV0XFzcI9w8oeStz+vvt4kMFxf3PHfWvJgde5JGzE0UXFzcI9yVcqQdmratlqKXg4uLu4HbFiJPHWnyViwuLu55bluCrDw6SV75X4OLi7uPmySXJOW1o9bZqgcuLu5Jbtu2aBc48jx6M6rBxcU9wk1KlgSRt1lXDki4uLi7uSuLFLN2Rv4aN0NWXFzcbdzZCkXb4KgboEmxhYuLu5m7PsxYGZYMG6a4uLhf4uZNk7ZAaZc8cHFxv8ttR62z9axhFYaLi3uEO2tfJmPRlQWO4ge4uLgbuG16mpUs7cpFO5TFxcXdwW2nsrP7ZPj6QKGDi4v7KLdNQ22aa0ufpbMaLi7ul7j1wsQogeLi4v5F7lNt1iI6Li7uQW6+XJWUO8nItl38wsXFPclt00oeOF/JSsogXFzcI9wfhkXiMdyMmdYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.3"></script>
 
 
 <div class="search-panel" id="search-panel">
     <ul class="search-result" id="search-result"></ul>
 </div>
-<script type="text/template" id="search-tpl">
+<template id="search-tpl">
 <li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
+    <a href="{path}" class="waves-block waves-effect">
         <div class="title ellipsis" title="{title}">{title}</div>
         <div class="flex-row flex-middle">
             <div class="tags ellipsis">
@@ -452,18 +528,16 @@ var BLOG_SHARE = {
         </div>
     </a>
 </li>
-</script>
+</template>
 
-<script src="/js/search.js"></script>
-
-
+<script src="/js/search.min.js?v=1.4.3" async></script>
 
 
 
-<script src="//s95.cnzz.com/z_stat.php?id=1260329340&web_id=1260329340"></script>
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 </body>
