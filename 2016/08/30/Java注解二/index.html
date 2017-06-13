@@ -13,10 +13,8 @@
     
     
     
-    <title>Java注解二 | iplugin | null</title>
+    <title>Java注解二 | iplugin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Java进阶">
@@ -55,76 +53,34 @@
 &amp;#x200B;    &amp;#x672C;&amp;#x7BC7;&amp;#x5C06;&amp;#x4F1A;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4F7F;&amp;#x7528;apt&amp;#x5DE5;&amp;#x5177;&amp;#x5B9E;&amp;#x73B0;&amp;#x6CE8;&amp;#x89E3;&amp;#x5904;&amp;#x7406;&amp;#x5668;&amp;#x3002;">
 <meta name="twitter:image" content="http://iplugin.cn/2016/08/30/Java注解二/javaApt1.png">
     
-        <link rel="alternative" href="/atom.xml" title="iplugin" type="application/atom+xml">
+        <link rel="alternate" type="application/atom+xml" title="iplugin" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
     <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/2.png">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">iplugin.cn</h5>
-          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+          <a href="mailto:undefined" class="mail">
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/OriginalLove" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://weibo.com/u/3219891670" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -139,20 +95,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Java注解二</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -173,17 +115,11 @@
 
     
 
+
 </header>
 
 
 <div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用apt工具实现Java注解处理器"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用apt工具实现Java注解处理器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用Android-Studio验证生成的jar包"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用Android Studio验证生成的jar包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">3.</span> <span class="post-toc-text">后记</span></a></li></ol>
-        </nav>
-    </aside>
     
 <article id="post-Java注解二"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -191,16 +127,12 @@
     <div class="post-card">
         <h1 class="post-card-title">Java注解二</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年08月30日 13:52" datetime="2016-08-30T05:52:43.000Z"  itemprop="datePublished">2016-08-30</time>
+            <time class="post-time" title="2016-08-30 13:52:43" datetime="2016-08-30T05:52:43.000Z"  itemprop="datePublished">2016-08-30</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
             
 
@@ -244,33 +176,15 @@
 <li><p><strong>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x751F;&#x6210;Jar&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539;pom.xml,&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x7684;pom.xml&#x9700;&#x8981;&#x518D;&#x6DFB;&#x52A0;jar&#xFF0C;&#x548C;maven-compiler-plugin,&#x4FEE;&#x6539;&#x540E;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></div><div class="line">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></div><div class="line">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>iuni.life<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>iuni<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.6<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">                    <span class="comment">&lt;!-- Disable annotation processing for ourselves. --&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">compilerArgument</span>&gt;</span>-proc:none<span class="tag">&lt;/<span class="name">compilerArgument</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>&#x6253;&#x6210;jar&#x6587;&#x4EF6;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#x56FE;&#x6D41;&#x7A0B;&#x6240;&#x793A;:</strong> <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt5.png" alt="javaApt5" title="">
-                </div>
-                <div class="image-caption">javaApt5</div>
-            </figure></p>
+<li><p><strong>&#x6253;&#x6210;jar&#x6587;&#x4EF6;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#x56FE;&#x6D41;&#x7A0B;&#x6240;&#x793A;:</strong> <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt5.png" alt="javaApt5"></p>
 </li>
 </ol>
 <p>  <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt7.png" alt="javaApt7"></p>
 <p>  <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt9.png" alt="javaApt9"></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt8.png" alt="javaApt8" title="">
-                </div>
-                <div class="image-caption">javaApt8</div>
-            </figure>
+<p><img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt8.png" alt="javaApt8"></p>
 <p>&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x5E94;&#x8BE5;&#x662F;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;   <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt10.png" alt="javaApt10"></p>
 <ol>
-<li><strong>&#x5728;resources&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;META-INF/services/javax.annotation.processing.Processor&#x6587;&#x4EF6;&#xFF0C;&#x5728;META-INF&#x4E2D;&#x663E;&#x793A;&#x6807;&#x8BC6;&#xFF0C;&#x4EE5;&#x4FBF;AptAnnotationProcessor&#x88AB;&#x4F7F;&#x7528;,</strong>(&#x5176;&#x4E2D;services&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x65B0;&#x5EFA;Directory) <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt11.png" alt="javaApt11" title="">
-                </div>
-                <div class="image-caption">javaApt11</div>
-            </figure></li>
+<li><strong>&#x5728;resources&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;META-INF/services/javax.annotation.processing.Processor&#x6587;&#x4EF6;&#xFF0C;&#x5728;META-INF&#x4E2D;&#x663E;&#x793A;&#x6807;&#x8BC6;&#xFF0C;&#x4EE5;&#x4FBF;AptAnnotationProcessor&#x88AB;&#x4F7F;&#x7528;,</strong>(&#x5176;&#x4E2D;services&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x65B0;&#x5EFA;Directory) <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt11.png" alt="javaApt11"></li>
 </ol>
 <p> &#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x6837;&#xFF1A;   <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt12.png" alt="javaApt12">&#x5728;javax.annotation.processing.Processor&#x4E2D;&#x5199;&#x5165;&#x6211;&#x4EEC;&#x7684;AptAnnotationProcessor&#x5B8C;&#x6574;&#x540D;&#x79F0;&#xFF1A;&#x201C;iuni.life.AptAnnotationProcessor&#x201D;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;   <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt13.png" alt="javaApt13"></p>
 <ol>
@@ -284,13 +198,7 @@
 </ul>
 </li>
 <li><p><strong>&#x751F;&#x6210;jar&#x6587;&#x4EF6;</strong></p>
-<p>&#x5728;&#x6267;&#x884C;&#x6B65;&#x9AA4;7&#x65E0;&#x9519;&#x8BEF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5728;&#x5982;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;jar&#x5305;&#xFF1A;<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt15.png" alt="javaApt15" title="">
-                </div>
-                <div class="image-caption">javaApt15</div>
-            </figure></p>
+<p>&#x5728;&#x6267;&#x884C;&#x6B65;&#x9AA4;7&#x65E0;&#x9519;&#x8BEF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5728;&#x5982;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;jar&#x5305;&#xFF1A;<img src="/2016/08/30/Java&#x6CE8;&#x89E3;&#x4E8C;/javaApt15.png" alt="javaApt15"></p>
 </li>
 </ol>
 <h1 id="&#x4F7F;&#x7528;Android-Studio&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x7684;jar&#x5305;"><a href="#&#x4F7F;&#x7528;Android-Studio&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x7684;jar&#x5305;" class="headerlink" title="&#x4F7F;&#x7528;Android Studio&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x7684;jar&#x5305;"></a>&#x4F7F;&#x7528;Android Studio&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x7684;jar&#x5305;</h1><ol>
@@ -339,26 +247,18 @@
         <blockquote class="post-copyright">
     <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2016-12-09T01:30:32.000Z" itemprop="dateUpdated">2016年12月9日 9:30</time>
-</span><br>
 
-
-        原文地址：<a href="/2016/08/30/Java注解二/" target="_blank" rel="external">http://iplugin.cn/2016/08/30/Java注解二/</a>
+        
     </div>
     <footer>
         <a href="http://iplugin.cn">
-            <img src="/img/2.png" alt="iplugin.cn">
+            <img src="/" alt="iplugin.cn">
             iplugin.cn
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -367,52 +267,6 @@
 
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/30/Java注解二/&title=《Java注解二》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/30/Java注解二/&title=《Java注解二》 — iplugin&source=&#x6458;&#x8981;:
-&#x200B;    &#x672C;&#x7BC7;&#x5C06;&#x4F1A;&#x4ECB;&#x7ECD..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/30/Java注解二/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java注解二》 — iplugin&url=http://iplugin.cn/2016/08/30/Java注解二/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/30/Java注解二/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
 
 
         </div>
@@ -443,17 +297,14 @@
 
     
 
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="Java注解二" data-title="Java注解二" data-url="http://iplugin.cn/2016/08/30/Java注解二/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
-lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 
-</script>
+
+
+
+
+
+
 
 
 
@@ -463,30 +314,6 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
 
 
 </div>
@@ -494,25 +321,18 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>iplugin &copy; 2016 - 2017</span>
+            <span>iplugin.cn &copy; 2017</span>
         </p>
     </div>
 </footer>
@@ -522,89 +342,23 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/30/Java注解二/&title=《Java注解二》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/30/Java注解二/&title=《Java注解二》 — iplugin&source=&#x6458;&#x8981;:
-&#x200B;    &#x672C;&#x7BC7;&#x5C06;&#x4F1A;&#x4ECB;&#x7ECD..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/30/Java注解二/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java注解二》 — iplugin&url=http://iplugin.cn/2016/08/30/Java注解二/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/30/Java注解二/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS27DMAwFwNz/0um2gBvhkXQKWBqvgsa1NVkQ/L1e8fX+da2/vd5z/fv686e33HBhYGA8lvFeXr17rs+/fl4/OX8vBgbGOYxPEWzy+uTOJASvz4aBgYGxZiRhcR2UqwEaAwMDIw+CeanZC8oYGBgYvSK22lzr/RBfr8UxMDAeyMiD5v9//sp8AwMD41GMd/GqPic5VrUY/uMtGBgYWzPyAJcMF/PljHzkWfhfDAyMTRnVwWRvPaLagKsucGBgYJzGmCRwk/+qtvxe1QiNgYHxWEae/FUTvvkyWbUAxsDA2JVRTcV6LblqaC6vbmBgYGzNSFav5gXtZLGjOWXFwMDYiJEA7jrE+s7kaR+/xcDA2JqRh8V1fKuG7PVBm8koBgbGAYxeGZm02PJm3CTfw8DAOIGRB9M8pesF2YSEgYFxDmMyGOh1w/I1ssKAEwMDY2tG7+i9UnM+MChvi2BgYBzDmIwE8jB6QxmMgYGxNSM/RM67K60st+owMDA2ZVTTsklpmjfjyu05DAyMYxjzJYnqqLIXuAuTVQwMjI0YvSWtJPhW1ylyKgYGxgmMu9r6ebLYSxyj+hsDA2NTRi/Y5UdPEtBejteEYWBgPJZx13iy+jvNAy4GBsZpjGrgy4cB1THDqJTFwMDAiANlEqaTUrbZNcTAwDieURgrtorS/AcaBVwMDIwHMvJVreqQMl8gS9LE5iATAwPj4Yy8dJyE2urQdDJawMDA2IjxA/CXf62bbMoUAAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.4.3"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.4.3" async></script>
+<script src="/js/main.min.js?v=1.6.7"></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 
 </body>

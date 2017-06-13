@@ -13,10 +13,8 @@
     
     
     
-    <title>Android 原型模式 | iplugin | null</title>
+    <title>Android 原型模式 | iplugin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Java 设计模式">
@@ -39,76 +37,34 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
 Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp;#x578B;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;">
 <meta name="twitter:image" content="http://iplugin.cn/2016/08/08/原型模式/原型模式.png">
     
-        <link rel="alternative" href="/atom.xml" title="iplugin" type="application/atom+xml">
+        <link rel="alternate" type="application/atom+xml" title="iplugin" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
     <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/2.png">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">iplugin.cn</h5>
-          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+          <a href="mailto:undefined" class="mail">
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/OriginalLove" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://weibo.com/u/3219891670" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -123,20 +79,6 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
         </a>
         <div class="flex-col header-title ellipsis">Android 原型模式</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -157,17 +99,11 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
 
     
 
+
 </header>
 
 
 <div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式-介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">原型模式 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式-定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">原型模式 定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式-使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">原型模式 使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式-通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">原型模式 通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">原型模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式的深拷贝和浅拷贝"><span class="post-toc-number">7.</span> <span class="post-toc-text">原型模式的深拷贝和浅拷贝</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浅拷贝"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">浅拷贝</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深拷贝"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">深拷贝</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型模式优缺点"><span class="post-toc-number">8.</span> <span class="post-toc-text">原型模式优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">9.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">11.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
-        </nav>
-    </aside>
     
 <article id="post-原型模式"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -175,16 +111,12 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
     <div class="post-card">
         <h1 class="post-card-title">Android 原型模式</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年08月08日 12:58" datetime="2016-08-08T04:58:55.000Z"  itemprop="datePublished">2016-08-08</time>
+            <time class="post-time" title="2016-08-08 12:58:55" datetime="2016-08-08T04:58:55.000Z"  itemprop="datePublished">2016-08-08</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
             
 
@@ -209,13 +141,7 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
 <p>&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x5DF2;&#x7ECF;&#x4E0E;Java&#x878D;&#x4E3A;&#x4E00;&#x4F53;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x968F;&#x624B;&#x62FF;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
 </li>
 </ul>
-<h2 id="&#x539F;&#x578B;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x539F;&#x578B;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x539F;&#x578B;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x539F;&#x578B;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/&#x539F;&#x578B;&#x6A21;&#x5F0F;.png" alt="&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML" title="">
-                </div>
-                <div class="image-caption">&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML</div>
-            </figure>
+<h2 id="&#x539F;&#x578B;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x539F;&#x578B;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x539F;&#x578B;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x539F;&#x578B;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p><img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/&#x539F;&#x578B;&#x6A21;&#x5F0F;.png" alt="&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x901A;&#x7528;UML"></p>
 <p><strong>&#x89D2;&#x8272;&#x4ECB;&#x7ECD;</strong></p>
 <ul>
 <li><strong>client:</strong> &#x5BA2;&#x6237;&#x7AEF;&#x7528;&#x6237;&#x3002;</li>
@@ -243,25 +169,13 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
 <p>&#x6BD4;&#x5982;&#x6539;&#x53D8;&#x4E0A;&#x8FF0;client&#x7C7B;&#x4E2D;Image List&#x7684;&#x503C;&#xFF1A;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iuni.life on 16/8/5.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</div><div class="line">        <span class="comment">//&#x6784;&#x5EFA;&#x6587;&#x6863;&#x5BF9;&#x8C61;</span></div><div class="line">        WordDocument originDoc = <span class="keyword">new</span> WordDocument();</div><div class="line">        originDoc.setmText(<span class="string">&quot;&#x8FD9;&#x662F;&#x4E00;&#x7BC7;&#x6587;&#x6863;&quot;</span>);</div><div class="line">        originDoc.addImages(<span class="string">&quot;&#x56FE;&#x7247;1&quot;</span>);</div><div class="line">        originDoc.addImages(<span class="string">&quot;&#x56FE;&#x7247;2&quot;</span>);</div><div class="line">        originDoc.addImages(<span class="string">&quot;&#x56FE;&#x7247;3&quot;</span>);</div><div class="line">        originDoc.addMap(<span class="string">&quot;yi&quot;</span>, <span class="string">&quot;ui&quot;</span>);</div><div class="line">        originDoc.showDocument();</div><div class="line"></div><div class="line">        <span class="comment">//&#x4E00;&#x4E07;&#x539F;&#x59CB;&#x6587;&#x6863;&#x4E3A;&#x6A21;&#x677F;,&#x62F7;&#x8D1D;&#x4E00;&#x4EFD;&#x526F;&#x672C;</span></div><div class="line">        WordDocument doc2 = originDoc.clone();</div><div class="line">        originDoc.showDocument();</div><div class="line">        <span class="comment">//&#x4FEE;&#x6539;&#x6587;&#x6863;&#x526F;&#x672C;,&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x539F;&#x59CB;&#x6587;&#x6863;</span></div><div class="line">        doc2.setmText(<span class="string">&quot;&#x8FD9;&#x662F;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x6587;&#x672C;&quot;</span>);</div><div class="line">      	<span class="comment">//doc2 &#x65B0;&#x589E;&#x81EA;&#x5DF1;&#x7684;&#x56FE;&#x7247;</span></div><div class="line">        doc2.addImages(<span class="string">&quot;&#x8FD9;&#x662F;doc2&#x6DFB;&#x52A0;&#x7684;&#x56FE;&#x7247;&quot;</span>);</div><div class="line">        doc2.showDocument();</div><div class="line"></div><div class="line">        originDoc.showDocument();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
 <p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/result2.png" alt="&#x6D45;&#x62F7;&#x8D1D;&#x6267;&#x884C;&#x7ED3;&#x679C;" title="">
-                </div>
-                <div class="image-caption">&#x6D45;&#x62F7;&#x8D1D;&#x6267;&#x884C;&#x7ED3;&#x679C;</div>
-            </figure>
+<p><img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/result2.png" alt="&#x6D45;&#x62F7;&#x8D1D;&#x6267;&#x884C;&#x7ED3;&#x679C;"></p>
 <p>&#x4ECE;&#x56FE;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;doc2&#x65B0;&#x589E;&#x7684;&#x56FE;&#x7247;&#xFF0C;originDoc &#x4E5F;&#x65B0;&#x589E;&#x4E86;&#x540C;&#x6837;&#x7684;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF0C;&#x90A3;&#x5C31;&#x9700;&#x8981;&#x6DF1;&#x62F7;&#x8D1D;&#x3002;</p>
 <h3 id="&#x6DF1;&#x62F7;&#x8D1D;"><a href="#&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6DF1;&#x62F7;&#x8D1D;"></a>&#x6DF1;&#x62F7;&#x8D1D;</h3><p>&#x90A3;&#x4EC0;&#x4E48;&#x662F;&#x6DF1;&#x62F7;&#x8D1D;&#x5462;&#xFF0C;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x74DC;&#x845B;&#xFF0C;&#x4F60;&#x4FEE;&#x6539;&#x4F60;&#x7684;&#xFF0C;&#x6211;&#x4FEE;&#x6539;&#x6211;&#x7684;&#xFF0C;&#x4E0D;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#xFF0C;&#x5BF9;&#x4E8E;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x6BB5;&#x4E5F;&#x8981;&#x91C7;&#x7528;&#x62F7;&#x8D1D;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5355;&#x7EAF;&#x5F15;&#x7528;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD9;&#x624D;&#x53EB;&#x6DF1;&#x62F7;&#x8D1D;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x4FEE;&#x6539;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x7684;ConcretePrototype &#x89D2;&#x8272;<strong>WordDocument&#x7C7B;</strong>&#x4E2D;&#x7684;clone&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x6DF1;&#x62F7;&#x8D1D;:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> WordDocument <span class="title">clone</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">try</span> {</div><div class="line">            WordDocument document = (WordDocument) <span class="keyword">super</span>.clone();</div><div class="line">            document.mText = <span class="keyword">this</span>.mText;</div><div class="line"><span class="comment">//            document.mImages=this.mImages;</span></div><div class="line"><span class="comment">//            document.hashMap=this.hashMap;</span></div><div class="line">            <span class="comment">//&#x5BF9;MImages&#x5BF9;&#x8C61;&#x4E5F;&#x8C03;&#x7528;clone&#x5BF9;&#x8C61;,&#x8FDB;&#x884C;&#x6DF1;&#x62F7;&#x8D1D;</span></div><div class="line">            document.mImages = (ArrayList&lt;String&gt;) <span class="keyword">this</span>.mImages.clone();</div><div class="line">            document.hashMap = (HashMap&lt;String, Object&gt;) <span class="keyword">this</span>.hashMap.clone();</div><div class="line">            <span class="keyword">return</span> document;</div><div class="line">        } <span class="keyword">catch</span> (Exception e) {</div><div class="line"></div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    }</div></pre></td></tr></table></figure>
 <p>client&#x4E0D;&#x52A8;&#xFF0C;&#x8FD0;&#x884C;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/result3.png" alt="&#x6DF1;&#x62F7;&#x8D1D;&#x8FD0;&#x884C;&#x7ED3;&#x679C;" title="">
-                </div>
-                <div class="image-caption">&#x6DF1;&#x62F7;&#x8D1D;&#x8FD0;&#x884C;&#x7ED3;&#x679C;</div>
-            </figure>
+<p><img src="/2016/08/08/&#x539F;&#x578B;&#x6A21;&#x5F0F;/result3.png" alt="&#x6DF1;&#x62F7;&#x8D1D;&#x8FD0;&#x884C;&#x7ED3;&#x679C;"></p>
 <p>&#x4ECE;&#x4E0A;&#x8FF0;&#x56FE;&#x7247;&#x53EF;&#x4EE5;&#x770B;&#x5230;doc2&#x6DFB;&#x52A0;&#x4E86;&#x56FE;&#x7247;&#xFF0C;originDoc&#x5E76;&#x6CA1;&#x6709;&#x53D7;&#x5230;&#x5F71;&#x54CD;&#xFF0C;doc2&#x65B0;&#x589E;&#x7684;&#x56FE;&#x7247;&#x5728;originDoc&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x3002;</p>
 <p><strong>&#x5EFA;&#x8BAE;:</strong> &#x5728;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x9519;&#x8BEF;&#xFF0C;&#x5EFA;&#x8BAE;&#x5927;&#x5BB6;&#x4F7F;&#x7528;&#x6DF1;&#x62F7;&#x8D1D;&#xFF0C;&#x907F;&#x514D;&#x56E0;&#x64CD;&#x4F5C;&#x526F;&#x672C;&#x5F71;&#x54CD;&#x539F;&#x59CB;&#x5BF9;&#x8C61;&#x3002;</p>
 <h2 id="&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"><a href="#&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;" class="headerlink" title="&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;"></a>&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x4F18;&#x7F3A;&#x70B9;</h2><h3 id="&#x4F18;&#x70B9;"><a href="#&#x4F18;&#x70B9;" class="headerlink" title="&#x4F18;&#x70B9;"></a>&#x4F18;&#x70B9;</h3><ul>
@@ -281,26 +195,18 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
         <blockquote class="post-copyright">
     <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2016-09-01T06:57:48.000Z" itemprop="dateUpdated">2016年9月1日 14:57</time>
-</span><br>
 
-
-        原文地址：<a href="/2016/08/08/原型模式/" target="_blank" rel="external">http://iplugin.cn/2016/08/08/原型模式/</a>
+        
     </div>
     <footer>
         <a href="http://iplugin.cn">
-            <img src="/img/2.png" alt="iplugin.cn">
+            <img src="/" alt="iplugin.cn">
             iplugin.cn
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -309,52 +215,6 @@ Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x539F;&amp
 
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/08/原型模式/&title=《Android 原型模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/08/原型模式/&title=《Android 原型模式》 — iplugin&source=&#x6458;&#x8981;:
-Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x539F;&#x578B..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/08/原型模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 原型模式》 — iplugin&url=http://iplugin.cn/2016/08/08/原型模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/08/原型模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
 
 
         </div>
@@ -385,17 +245,14 @@ Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x539F;&#x578B..." data-title=" QQ"
 
     
 
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="原型模式" data-title="Android 原型模式" data-url="http://iplugin.cn/2016/08/08/原型模式/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
-lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 
-</script>
+
+
+
+
+
+
 
 
 
@@ -405,30 +262,6 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
 
 
 </div>
@@ -436,25 +269,18 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>iplugin &copy; 2016 - 2017</span>
+            <span>iplugin.cn &copy; 2017</span>
         </p>
     </div>
 </footer>
@@ -464,89 +290,23 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/08/原型模式/&title=《Android 原型模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/08/原型模式/&title=《Android 原型模式》 — iplugin&source=&#x6458;&#x8981;:
-Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x539F;&#x578B..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/08/原型模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 原型模式》 — iplugin&url=http://iplugin.cn/2016/08/08/原型模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/08/原型模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aS27DMAwFwNz/0um2QGv5kfrEAUarwFGsURaESPH1isf718hnXs3P39YcuLi409z3cCRzZt6QG3Bxcc9zryLG1efqt39XuXrDjQ0XF/fx3Cpi/E5cXNzv5Y7nJIFsHApxcXGfw02Sk2T55LfJVhfkari4uBPcvEq57/OW+i4uLm6L2yt9JgeRLYVXXFzcI9w8oIyLINXnU+vi4uJu5s4UO/KwVYWWQxguLu5SblLU6F2r5MXTaoEGFxd3N3fMytsrZ7aXrIiLi/tZbo5IjkTVw9MNHRcX9zh3QSkzaZ6Ik59/ZuLi4h7nrrrlzC9XymERFxf3Q9zqk176lBdMm7kaLi7uBDc/duQHl95mxm/AxcV9Ard6cZKgq40XNzNxcXE3c/PmiXzhahNGvnlcXNyT3Dy9ScocM2Hr5k/BxcU9zl3bcPlqjZvf4uLibub2LlPzwkde8oi2h4uLe4Tbu16tPq8mSAvCIi4u7jR3VfDqHZXGGy5HX1xc3KXcaqDpNXQmEbSQq+Hi4n4Vt9psUUiEcHFxH8ntJTzVfKtw84OLi7uNm4SkqJlyaWEFFxf3U9zexWf1Sa+Jc6q+i4uL2+H+AImNw0KisYeqAAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.4.3"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.4.3" async></script>
+<script src="/js/main.min.js?v=1.6.7"></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 
 </body>

@@ -13,10 +13,8 @@
     
     
     
-    <title>工厂方法模式 | iplugin | null</title>
+    <title>工厂方法模式 | iplugin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Java 设计模式">
@@ -36,76 +34,34 @@
 <meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x200B;    &amp;#x6B63;&amp;#x6240;&amp;#x8C13;&amp;#x53EA;&amp;#x8981;&amp;#x529F;&amp;#x592B;&amp;#x6DF1;&amp;#xFF0C;&amp;#x94C1;&amp;#x6775;&amp;#x78E8;&amp;#x6210;&amp;#x9488;&amp;#xFF0C;&amp;#x575A;&amp;#x6301;&amp;#x4E0D;&amp;#x61C8;&amp;#xFF0C;&amp;#x6C34;&amp;#x6">
 <meta name="twitter:image" content="http://iplugin.cn/2016/08/12/工厂方法模式/factoryUml.png">
     
-        <link rel="alternative" href="/atom.xml" title="iplugin" type="application/atom+xml">
+        <link rel="alternate" type="application/atom+xml" title="iplugin" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
     <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/2.png">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">iplugin.cn</h5>
-          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+          <a href="mailto:undefined" class="mail">
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/OriginalLove" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://weibo.com/u/3219891670" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -120,20 +76,6 @@
         </a>
         <div class="flex-col header-title ellipsis">工厂方法模式</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -154,17 +96,11 @@
 
     
 
+
 </header>
 
 
 <div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式-介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">工厂方法模式 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">工厂方法设计模式 定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">工厂方法设计模式 使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法设计模式-通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">工厂方法设计模式 通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">工厂方法模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式的优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">工厂方法模式的优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式的拓展"><span class="post-toc-number">8.</span> <span class="post-toc-text">工厂方法模式的拓展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">9.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">11.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
-        </nav>
-    </aside>
     
 <article id="post-工厂方法模式"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -172,16 +108,12 @@
     <div class="post-card">
         <h1 class="post-card-title">工厂方法模式</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年08月12日 15:32" datetime="2016-08-12T07:32:47.000Z"  itemprop="datePublished">2016-08-12</time>
+            <time class="post-time" title="2016-08-12 15:32:47" datetime="2016-08-12T07:32:47.000Z"  itemprop="datePublished">2016-08-12</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
             
 
@@ -195,13 +127,7 @@
 <li>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;new&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6709;&#x9700;&#x8981;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x614E;&#x91CD;&#x7684;&#x8003;&#x8651;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x662F;&#x4E0D;&#x662F;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x907F;&#x514D;&#x4F7F;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x3002;</li>
 <li>&#x9700;&#x8981;&#x7075;&#x6D3B;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x6846;&#x67B6;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x91C7;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x3002;</li>
 </ul>
-<h2 id="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2016/08/12/&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;/factoryUml.png" alt="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;" title="">
-                </div>
-                <div class="image-caption">&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;</div>
-            </figure>
+<h2 id="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;"><a href="#&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;-&#x901A;&#x7528;UML&#x7C7B;&#x56FE;" class="headerlink" title="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;"></a>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x901A;&#x7528;UML&#x7C7B;&#x56FE;</h2><p><img src="/2016/08/12/&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;/factoryUml.png" alt="&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;UML&#x7C7B;&#x56FE;"></p>
 <p><strong>&#x8BF4;&#x660E;:</strong></p>
 <ul>
 <li><p><strong>Product</strong></p>
@@ -328,26 +254,18 @@
         <blockquote class="post-copyright">
     <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2016-09-01T02:29:50.000Z" itemprop="dateUpdated">2016年9月1日 10:29</time>
-</span><br>
 
-
-        原文地址：<a href="/2016/08/12/工厂方法模式/" target="_blank" rel="external">http://iplugin.cn/2016/08/12/工厂方法模式/</a>
+        
     </div>
     <footer>
         <a href="http://iplugin.cn">
-            <img src="/img/2.png" alt="iplugin.cn">
+            <img src="/" alt="iplugin.cn">
             iplugin.cn
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -356,51 +274,6 @@
 
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iplugin&source=&#x524D;&#x8A00;&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/12/工厂方法模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iplugin&url=http://iplugin.cn/2016/08/12/工厂方法模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/12/工厂方法模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
 
 
         </div>
@@ -431,17 +304,14 @@
 
     
 
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="工厂方法模式" data-title="工厂方法模式" data-url="http://iplugin.cn/2016/08/12/工厂方法模式/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
-lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 
-</script>
+
+
+
+
+
+
 
 
 
@@ -451,30 +321,6 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
 
 
 </div>
@@ -482,25 +328,18 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>iplugin &copy; 2016 - 2017</span>
+            <span>iplugin.cn &copy; 2017</span>
         </p>
     </div>
 </footer>
@@ -510,88 +349,23 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/08/12/工厂方法模式/&title=《工厂方法模式》 — iplugin&source=&#x524D;&#x8A00;&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/08/12/工厂方法模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iplugin&url=http://iplugin.cn/2016/08/12/工厂方法模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/08/12/工厂方法模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aOY7DMBAEQP//097UieTuob2AyWIk+JBYCgac4/GI1/NlzX75+sn9dfKU4cLAwPhZxvN2Xf3maov3n1xtMX/u5X0wMDAOYFzd+v66Dc33282fhYGBgZHcLgnQeTDNn4uBgYGRB9xkW7MjJgYGBsZKEtsmru0W/ykXx8DA+EFGXnX//+uv9DcwMDB+ivEs13o7c3Z8fLMrDAyMrRl5gJuV8pNSWp64vmk/YGBgHMDIm47tgFfSVMjDMQYGxpmMlWbA+kGw/W8UlDEwMDZirCSZLXuWHifNBgwMjL0Zs/Gszwbcla1jYGCcw2ibl7NWwcq/8pEODAyMcxjtCFeelOYFvrbYh4GBsTejHX1Iwl+76eTOxbAFBgbGRoz2WJY0ONv/zg6FxbQIBgbGFox2MGIlZZ3h34RjDAyMYxizony7laRgVwdxDAyMAxht6tiOXOTPbdsAl0ksBgbGRoy80J88rP22fUHRa8LAwDiMkSSr7RDGpxLX6LSLgYGxEWOWQLalt7y1ORvgwMDAOIGRB9NZSa4dvGgPlBgYGCcw2sZku8VZYa54oRgYGJsynuX6etCcleEwMDC2ZuQrR64H2ZXmKAYGxq6MWbnts0fGNuA+ViI9BgbGzzLywNcW/ZNmZIssGgMYGBhHMmanzlkqW59eMTAwMBYS3dk4RXFnDAyMAxhtIjor6K+krBgYGCczZqnjZ8e/VkI8BgbG1ow/kljRP4gniRkAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.4.3"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.4.3" async></script>
+<script src="/js/main.min.js?v=1.6.7"></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 
 </body>

@@ -13,10 +13,8 @@
     
     
     
-    <title>策略模式 | iplugin | null</title>
+    <title>策略模式 | iplugin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Java 设计模式">
@@ -38,76 +36,34 @@
 &amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x7B56;&amp;#x7565;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;">
 <meta name="twitter:image" content="http://iplugin.cn/2016/09/01/策略模式/clms1.png">
     
-        <link rel="alternative" href="/atom.xml" title="iplugin" type="application/atom+xml">
+        <link rel="alternate" type="application/atom+xml" title="iplugin" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.4.3">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
     <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/2.png">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">iplugin.cn</h5>
-          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+          <a href="mailto:undefined" class="mail">
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/OriginalLove" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://weibo.com/u/3219891670" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -122,20 +78,6 @@
         </a>
         <div class="flex-col header-title ellipsis">策略模式</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -156,17 +98,11 @@
 
     
 
+
 </header>
 
 
 <div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">策略模式介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">策略模式定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">策略模式使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">策略模式通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">策略模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">策略模式优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略模式的拓展"><span class="post-toc-number">8.</span> <span class="post-toc-text">策略模式的拓展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">9.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">11.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
-        </nav>
-    </aside>
     
 <article id="post-策略模式"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -174,16 +110,12 @@
     <div class="post-card">
         <h1 class="post-card-title">策略模式</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016年09月01日 14:51" datetime="2016-09-01T06:51:44.000Z"  itemprop="datePublished">2016-09-01</time>
+            <time class="post-time" title="2016-09-01 14:51:44" datetime="2016-09-01T06:51:44.000Z"  itemprop="datePublished">2016-09-01</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
             
 
@@ -276,26 +208,18 @@
         <blockquote class="post-copyright">
     <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2016-09-05T07:50:20.000Z" itemprop="dateUpdated">2016年9月5日 15:50</time>
-</span><br>
 
-
-        原文地址：<a href="/2016/09/01/策略模式/" target="_blank" rel="external">http://iplugin.cn/2016/09/01/策略模式/</a>
+        
     </div>
     <footer>
         <a href="http://iplugin.cn">
-            <img src="/img/2.png" alt="iplugin.cn">
+            <img src="/" alt="iplugin.cn">
             iplugin.cn
         </a>
     </footer>
 </blockquote>
 
         
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
 
 
         <div class="post-footer">
@@ -304,52 +228,6 @@
 
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/09/01/策略模式/&title=《策略模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/09/01/策略模式/&title=《策略模式》 — iplugin&source=&#x6458;&#x8981;:
-&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;Java&#x8BBE;&#x8BA1..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/09/01/策略模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《策略模式》 — iplugin&url=http://iplugin.cn/2016/09/01/策略模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/09/01/策略模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
 
 
         </div>
@@ -380,17 +258,14 @@
 
     
 
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="策略模式" data-title="策略模式" data-url="http://iplugin.cn/2016/09/01/策略模式/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'iuni1314', theme: 'none'};
-lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 
-</script>
+
+
+
+
+
+
 
 
 
@@ -400,30 +275,6 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 
 </article>
 
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
 
 
 </div>
@@ -431,25 +282,18 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>iplugin &copy; 2016 - 2017</span>
+            <span>iplugin.cn &copy; 2017</span>
         </p>
     </div>
 </footer>
@@ -459,89 +303,23 @@ lazyScripts.push('/js/embed.min.js?v=1.4.3');
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2016/09/01/策略模式/&title=《策略模式》 — iplugin&pic=http://iplugin.cn/img/2.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2016/09/01/策略模式/&title=《策略模式》 — iplugin&source=&#x6458;&#x8981;:
-&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;Java&#x8BBE;&#x8BA1..." data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2016/09/01/策略模式/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《策略模式》 — iplugin&url=http://iplugin.cn/2016/09/01/策略模式/&via=http://iplugin.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2016/09/01/策略模式/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aQY7DIBAEwPz/097rSrvgniEQRypOUeyQ8qVlGl6veFy/xujq3zvn94+uvmHg4uIuc6/pSBC9GZKr/zwSLi7uQW4ST1X6PLZG89/YcHFxH89N7sznxMXF/V7u/JskyOYPjIuL+xxusjhJ/r4Xc1vWari4uAvcvKXc93lLv4uLi9viXsXxrkftDVxc3DPcPFB69F5JerMdi4uLe5ybFBbVYKpCC5usuLi4G7h5MOWFaXUbplDQ4OLiPoDbK097bUZygAMXF/ckN9kO6W269CqSIR0XF/cgtxdnVVzvV8PFDy4u7hFuXl70Dlrl2zPDmXFxcT/ETaZeObZVLUyjtRouLu5mbr6ZWqgzijVrOXdxcXHfys1fR3r1aC/IbpZJuLi4B7m90rN6hGJ9oYWLi3ueu7JQ6R3Dqs6Gi4v7KW5+hKIXc+XXmnxvBxcXd5l7FUc1+KrzlHMOFxd3A7caLvkhjHxhU1784OLiHuHm4ZUTq/Vr4cgXLi7uQW4eNL1Xn2rZWr6Mi4v7MG4vnpIAxcXF/XbueoRFSyNcXNyD3B0ladLH5JGHi4t7ktvb+Kwet5o/0pZ+FxcXt8P9AZ86cbBFzvTjAAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.4.3"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="/js/search.min.js?v=1.4.3" async></script>
+<script src="/js/main.min.js?v=1.6.7"></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 
 </body>
