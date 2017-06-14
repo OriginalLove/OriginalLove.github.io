@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>iplugin</title>
-  
+  <title>Fei&#39;s Blog</title>
+  <subtitle>努力~</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iplugin.cn/"/>
@@ -9,7 +9,7 @@
   <id>http://iplugin.cn/</id>
   
   <author>
-    <name>iplugin.cn</name>
+    <name>飞</name>
     
   </author>
   
