@@ -29,7 +29,7 @@
 <meta property="og:description" content="&amp;#x6458;&amp;#x8981;:
 &amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#">
 <meta property="og:image" content="http://iplugin.cn/2016/11/27/代理模式/proxyUml.png">
-<meta property="og:updated_time" content="2016-11-29T01:39:53.000Z">
+<meta property="og:updated_time" content="2017-06-14T00:51:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代理模式">
 <meta name="twitter:description" content="&amp;#x6458;&amp;#x8981;:
@@ -163,7 +163,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">代理模式介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">代理模式定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">代理模式使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">代理模式通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">代理模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">代理模式优缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">8.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人博客"><span class="post-toc-number">10.</span> <span class="post-toc-text">个人博客</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">代理模式介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">代理模式定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式使用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">代理模式使用场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式通用UML类图"><span class="post-toc-number">5.</span> <span class="post-toc-text">代理模式通用UML类图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式使用实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">代理模式使用实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理模式优缺点"><span class="post-toc-number">7.</span> <span class="post-toc-text">代理模式优缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">8.</span> <span class="post-toc-text">后记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
         </nav>
     </aside>
     
@@ -210,7 +210,6 @@
 <h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
 <li><strong><em>&lt;&lt;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x8749;&gt;&gt;</em></strong>  &#x79E6;&#x5C0F;&#x6CE2; &#x8457;</li>
 </ul>
-<h2 id="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"><a href="#&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"></a>&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</h2><p>&#x5982;&#x60F3;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x9605;&#x8BFB;&#x4F53;&#x9A8C;&#xFF0C;&#x8BF7;&#x8BBF;&#x95EE;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x7F51;&#x7AD9;&#xFF1A;<a href="http://www.iuni.life" target="_blank" rel="external">iuni.life</a></p>
 
         </div>
 
@@ -218,7 +217,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2016-11-29T01:39:53.000Z" itemprop="dateUpdated">2016-11-29 09:39:53</time>
+    Last updated: <time datetime="2017-06-14T00:51:34.000Z" itemprop="dateUpdated">2017-06-14 08:51:34</time>
 </span><br>
 
 
