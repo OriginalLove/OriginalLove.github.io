@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | Fei&#39;s Blog | 努力~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="DesignPatternJava &amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6709;23&amp;#x79CD;&amp;#xFF0C;&amp;#x5206;&amp;#x4E09;&amp;#x5927;&amp;#x7C7B;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x7684;&amp;#x4E94;&amp;#x79CD;&amp;#xFF0C;&amp;#x7ED3;&amp;#x6784;&amp;#x578B;&amp;#x7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://iplugin.cn/2017/06/14/README/index.html">
+<meta property="og:site_name" content="Fei's Blog">
+<meta property="og:description" content="DesignPatternJava &amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6709;23&amp;#x79CD;&amp;#xFF0C;&amp;#x5206;&amp;#x4E09;&amp;#x5927;&amp;#x7C7B;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x7684;&amp;#x4E94;&amp;#x79CD;&amp;#xFF0C;&amp;#x7ED3;&amp;#x6784;&amp;#x578B;&amp;#x7">
+<meta property="og:updated_time" content="2017-06-14T14:11:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="DesignPatternJava &amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x6709;23&amp;#x79CD;&amp;#xFF0C;&amp;#x5206;&amp;#x4E09;&amp;#x5927;&amp;#x7C7B;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;&amp;#x578B;&amp;#x7684;&amp;#x4E94;&amp;#x79CD;&amp;#xFF0C;&amp;#x7ED3;&amp;#x6784;&amp;#x578B;&amp;#x7">
+    
+        <link rel="alternate" type="application/atom+xml" title="Fei&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/2.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">飞</h5>
+          <a href="mailto:568660429@qq.com" title="568660429@qq.com" class="mail">568660429@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/OriginalLove" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/3219891670" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-14T14:11:00.000Z" itemprop="datePublished" class="page-time">
+  2017-06-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DesignPattern"><span class="post-toc-number">1.</span> <span class="post-toc-text">DesignPattern</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建型模式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">创建型模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结构型模式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">结构型模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行为型模式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">行为型模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#个人网站"><span class="post-toc-number">2.</span> <span class="post-toc-text">个人网站</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-README"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-14 22:11:00" datetime="2017-06-14T14:11:00.000Z"  itemprop="datePublished">2017-06-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="DesignPattern"><a href="#DesignPattern" class="headerlink" title="DesignPattern"></a>DesignPattern</h1><p>Java &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x6709;23&#x79CD;&#xFF0C;&#x5206;&#x4E09;&#x5927;&#x7C7B;&#xFF0C;&#x521B;&#x5EFA;&#x578B;&#x7684;&#x4E94;&#x79CD;&#xFF0C;&#x7ED3;&#x6784;&#x578B;&#x7684;&#x4E03;&#x79CD;&#xFF0C;&#x884C;&#x4E3A;&#x578B;&#x7684;&#x5341;&#x4E00;&#x79CD;&#x3002;</p>
+<p>&#x5176;&#x4ED6;&#x8BBE;&#x8BA1;&#x6709;&#x6A21;&#x5F0F;&#xFF1A;MVC&#xFF0C;MVP&#xFF0C;MVVM&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;"></a>&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/BuilderDesignPattern.md" target="_blank" rel="external">&#x5EFA;&#x9020;&#x8005;(Builder)&#x6A21;&#x5F0F;</a></li>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x539F;&#x578B;&#x6A21;&#x5F0F;</a></li>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</a></li>
+<li>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</li>
+<li>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</li>
+</ul>
+<h2 id="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;"></a>&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
+<li>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;</li>
+<li>&#x88C5;&#x9970;&#x6A21;&#x5F0F;</li>
+<li>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</li>
+<li>&#x5916;&#x89C2;&#x6A21;&#x5F0F;&#xFF08;&#x95E8;&#x9762;&#x6A21;&#x5F0F;&#xFF09;</li>
+<li>&#x6865;&#x63A5;&#x6A21;&#x5F0F; </li>
+<li>&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</li>
+<li>&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</li>
+</ul>
+<h2 id="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;"></a>&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x7B56;&#x7565;&#x6A21;&#x5F0F;</a></li>
+<li>&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</li>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</a></li>
+<li>&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;</li>
+<li>&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;</li>
+<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/CommandPattern.md" target="_blank" rel="external">&#x547D;&#x4EE4;&#x6A21;&#x5F0F;</a></li>
+<li>&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;</li>
+<li>&#x72B6;&#x6001;&#x6A21;&#x5F0F;</li>
+<li>&#x8BBF;&#x95EE;&#x8005;&#x6A21;&#x5F0F;</li>
+<li>&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</li>
+<li>&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x5F0F;</li>
+</ul>
+<h2 id="&#x5176;&#x4ED6;"><a href="#&#x5176;&#x4ED6;" class="headerlink" title="&#x5176;&#x4ED6;"></a>&#x5176;&#x4ED6;</h2><ul>
+<li>MVC</li>
+<li>MVP</li>
+<li>MVVM</li>
+</ul>
+<h1 id="&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;"><a href="#&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;"></a>&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;</h1><p> <a href="http://www.iplugin.cn" target="_blank" rel="external">iplugin.cn</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-06-14T14:11:00.000Z" itemprop="dateUpdated">2017-06-14 22:11:00</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2017/06/14/README/" target="_blank" rel="external">http://iplugin.cn/2017/06/14/README/</a>
+        
+    </div>
+    <footer>
+        <a href="http://iplugin.cn">
+            <img src="/img/2.png" alt="飞">
+            飞
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2017/06/14/README/&title=《No title》 — Fei's Blog&pic=http://iplugin.cn/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2017/06/14/README/&title=《No title》 — Fei's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2017/06/14/README/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — Fei's Blog&url=http://iplugin.cn/2017/06/14/README/&via=http://iplugin.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2017/06/14/README/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/27/代理模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">代理模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://iplugin.cn/2017/06/14/README/index.html',
+        sourceId: 'README',
+        productKey: '354a6ad561354a8d8e229fa43d4b9a38',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/weixin_my.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay_my.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>飞 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://iplugin.cn/2017/06/14/README/&title=《No title》 — Fei's Blog&pic=http://iplugin.cn/img/2.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://iplugin.cn/2017/06/14/README/&title=《No title》 — Fei's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://iplugin.cn/2017/06/14/README/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — Fei's Blog&url=http://iplugin.cn/2017/06/14/README/&via=http://iplugin.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://iplugin.cn/2017/06/14/README/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aQW4CMQwFUO5/abrtAoZve5xS6WWFBEyeZ2Elth+PeD1/rXffXn/On3bDwsXFHXOfl+v6N5OAk+e/2AUXF/cgt5eergO7Tlt5ysPFxf0v3DzxzQ9DuLi4389NElY1GFxc3O/kJhvkSW1yVLrtroaLizvg5kWNvc8r9V1cXNwW91lcyX+TUHsLFxf3DDdPKD10r0j6YV9cXNxlbjVVVYsa89+/eK+4uLhHuEmZcn6ByQ9DH05kuLi4y9xJUyQpj04KrG9fCi4u7jJ346JSHb8o0HFxcQ9yk5ZqdeM8sMLYBy4u7kFudRhrMrQxab3g4uKe4ebDUvml6N6C6Yd0houLu8ydD1tUm6zVF4SLi3uSO2+p3ttkjZ6Mi4u7zJ2AeoXUvCBbaLLi4uIucPNUMimd9EY0cHFxv40bJZfW0afXaMHFxd3mTgawqmEk5ddHNc/h4uIucHvJqzfE2Rv8agaDi4s75lYHKebjFEkiKzdZcXFxF7j5NvMgqwVWXFzc7+dOrivVoc9C1QQXF/dPuflhpTdysXjEwcXFLXKTw0rejl0smuDi4h7h9hqf1bHL6hjoDfVdXFzcDvcHB4kLCQZL/pEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
