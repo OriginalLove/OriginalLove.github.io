@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iplugin.cn/"/>
-  <updated>2017-06-14T14:11:00.000Z</updated>
+  <updated>2017-06-14T00:51:34.000Z</updated>
   <id>http://iplugin.cn/</id>
   
   <author>
@@ -14,61 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://iplugin.cn/2017/06/14/README/"/>
-    <id>http://iplugin.cn/2017/06/14/README/</id>
-    <published>2017-06-14T14:11:00.000Z</published>
-    <updated>2017-06-14T14:11:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="DesignPattern"><a href="#DesignPattern" class="headerlink" title="DesignPattern"></a>DesignPattern</h1><p>Java &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x6709;23&#x79CD;&#xFF0C;&#x5206;&#x4E09;&#x5927;&#x7C7B;&#xFF0C;&#x521B;&#x5EFA;&#x578B;&#x7684;&#x4E94;&#x79CD;&#xFF0C;&#x7ED3;&#x6784;&#x578B;&#x7684;&#x4E03;&#x79CD;&#xFF0C;&#x884C;&#x4E3A;&#x578B;&#x7684;&#x5341;&#x4E00;&#x79CD;&#x3002;</p>
-<p>&#x5176;&#x4ED6;&#x8BBE;&#x8BA1;&#x6709;&#x6A21;&#x5F0F;&#xFF1A;MVC&#xFF0C;MVP&#xFF0C;MVVM&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;"></a>&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/BuilderDesignPattern.md" target="_blank" rel="external">&#x5EFA;&#x9020;&#x8005;(Builder)&#x6A21;&#x5F0F;</a></li>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x539F;&#x578B;&#x6A21;&#x5F0F;</a></li>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</a></li>
-<li>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</li>
-<li>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</li>
-</ul>
-<h2 id="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;"></a>&#x7ED3;&#x6784;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
-<li>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;</li>
-<li>&#x88C5;&#x9970;&#x6A21;&#x5F0F;</li>
-<li>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</li>
-<li>&#x5916;&#x89C2;&#x6A21;&#x5F0F;&#xFF08;&#x95E8;&#x9762;&#x6A21;&#x5F0F;&#xFF09;</li>
-<li>&#x6865;&#x63A5;&#x6A21;&#x5F0F; </li>
-<li>&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</li>
-<li>&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</li>
-</ul>
-<h2 id="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;"><a href="#&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;"></a>&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;</h2><ul>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x7B56;&#x7565;&#x6A21;&#x5F0F;</a></li>
-<li>&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</li>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.md" target="_blank" rel="external">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</a></li>
-<li>&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;</li>
-<li>&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;</li>
-<li><a href="https://github.com/OriginalLove/DesignPattern/blob/master/CommandPattern.md" target="_blank" rel="external">&#x547D;&#x4EE4;&#x6A21;&#x5F0F;</a></li>
-<li>&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F;</li>
-<li>&#x72B6;&#x6001;&#x6A21;&#x5F0F;</li>
-<li>&#x8BBF;&#x95EE;&#x8005;&#x6A21;&#x5F0F;</li>
-<li>&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</li>
-<li>&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x5F0F;</li>
-</ul>
-<h2 id="&#x5176;&#x4ED6;"><a href="#&#x5176;&#x4ED6;" class="headerlink" title="&#x5176;&#x4ED6;"></a>&#x5176;&#x4ED6;</h2><ul>
-<li>MVC</li>
-<li>MVP</li>
-<li>MVVM</li>
-</ul>
-<h1 id="&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;"><a href="#&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;"></a>&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;</h1><p> <a href="http://www.iplugin.cn" target="_blank" rel="external">iplugin.cn</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;DesignPattern&quot;&gt;&lt;a href=&quot;#DesignPattern&quot; class=&quot;headerlink&quot; title=&quot;DesignPattern&quot;&gt;&lt;/a&gt;DesignPattern&lt;/h1&gt;&lt;p&gt;Java &amp;#x8BBE;&amp;#x8BA1;&amp;#x6A
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>代理模式</title>
@@ -114,14 +59,13 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>命令模式</title>
     <link href="http://iplugin.cn/2016/09/08/CommandPattern/"/>
     <id>http://iplugin.cn/2016/09/08/CommandPattern/</id>
     <published>2016-09-08T01:29:13.000Z</published>
-    <updated>2017-06-14T14:00:47.000Z</updated>
+    <updated>2017-06-15T01:12:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p>title: &#x547D;&#x4EE4;&#x6A21;&#x5F0F;<br>date: 2016-09-08 09:29:13<br>tags: Java &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</p>
-<p><strong>&#x6458;&#x8981;:</strong></p>
+    <content type="html"><![CDATA[<p><strong>&#x6458;&#x8981;:</strong></p>
 <p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x662F;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;(Command Pattern)&#x3002;</p>
   <a id="more"></a>
 <h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x200B;    &#x6B63;&#x6240;&#x8C13;&#x53EA;&#x8981;&#x529F;&#x592B;&#x6DF1;&#xFF0C;&#x94C1;&#x6775;&#x78E8;&#x6210;&#x9488;&#xFF0C;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6C34;&#x6EF4;&#x77F3;&#x7A7F;&#x3002;&#x5B66;&#x4E60;&#x4E5F;&#x8981;&#x575A;&#x6301;&#x4E0D;&#x61C8;&#xFF0C;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#xFF0C;&#x624D;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x91CF;&#x53D8;&#x4FC3;&#x6210;&#x8D28;&#x53D8;&#x3002;&#x5728;&#x524D;&#x8FDB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x8981;&#x4FDD;&#x6301;&#x597D;&#x826F;&#x597D;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x6025;&#x4E0D;&#x71E5;&#xFF0C;&#x811A;&#x8E0F;&#x5B9E;&#x5730;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x4E2A;&#x811A;&#x5370;&#x3002;</p>
@@ -207,12 +151,13 @@
     
     <summary type="html">
     
-      &lt;p&gt;title: &amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;&lt;br&gt;date: 2016-09-08 09:29:13&lt;br&gt;tags: Java &amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;:&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x5185;&amp;#x5BB9;&amp;#x662F;Java&amp;#x8BBE;&amp;#x8BA1;&amp;#x6A21;&amp;#x5F0F;&amp;#x4E4B;&amp;#x547D;&amp;#x4EE4;&amp;#x6A21;&amp;#x5F0F;(Command Pattern)&amp;#x3002;&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="Java 设计模式" scheme="http://iplugin.cn/tags/Java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
