@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iplugin.cn/"/>
-  <updated>2018-01-11T08:28:19.227Z</updated>
+  <updated>2018-01-11T08:33:58.706Z</updated>
   <id>http://iplugin.cn/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>代理模式111</title>
+    <title>代理模式</title>
     <link href="http://iplugin.cn/2016/11/27/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     <id>http://iplugin.cn/2016/11/27/代理模式/</id>
     <published>2016-11-27T06:51:44.000Z</published>
-    <updated>2018-01-11T08:28:19.227Z</updated>
+    <updated>2018-01-11T08:33:58.706Z</updated>
     
     <content type="html"><![CDATA[<p><strong>&#x6458;&#x8981;:</strong></p>
 <p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x5728;Android&#x5F00;&#x53D1;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
