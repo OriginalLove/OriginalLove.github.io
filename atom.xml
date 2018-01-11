@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iplugin.cn/"/>
-  <updated>2018-01-11T08:33:58.706Z</updated>
+  <updated>2018-01-11T08:45:50.941Z</updated>
   <id>http://iplugin.cn/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 开发遇到的问题集锦</title>
+    <link href="http://iplugin.cn/2018/01/11/AndroidDevProblem/"/>
+    <id>http://iplugin.cn/2018/01/11/AndroidDevProblem/</id>
+    <published>2018-01-11T08:41:54.000Z</published>
+    <updated>2018-01-11T08:45:50.941Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>&#x6458;&#x8981;:</strong></p>
+<p>&#x200B;    &#x672C;&#x7BC7;&#x957F;&#x671F;&#x7EF4;&#x62A4;&#xFF0C;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;android&#x5F00;&#x53D1;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002;</p>
+<a id="more"></a>
+<h1 id="1-&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;"><a href="#1-&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;" class="headerlink" title="1.&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;"></a>1.&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;</h1><ul>
+<li>&#x5FEB;&#x901F;&#x70B9;&#x51FB;&#x70B9;&#x51FB;&#x8DF3;&#x51FA;&#x4E86;App&#xFF0C;&#x60C5;&#x51B5;&#x5982;&#x4E0B;:</li>
+</ul>
+<p><img src="/2018/01/11/AndroidDevProblem/vivo_error.gif" style="zoom:50%;"></p>
+<p>&#x200B;    <strong>&#x89E3;&#x51B3;&#x529E;&#x6CD5;:</strong></p>
+<p>&#x200B;    &#x53BB;&#x9664;AppTheme &#x4E2D; &#x628A;windowIsTranslucent &#x53BB;&#x6389;&#x5373;&#x53EF;</p>
+<ul>
+<li>&#x70B9;&#x51FB;&#x8DF3;&#x51FA;&#x4E86;App&#xFF0C;&#x770B;&#x5230;&#x684C;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x53C8;&#x56DE;&#x5230;&#x4E86;APP&#xFF0C;</li>
+</ul>
+<p><img src="/2018/01/11/AndroidDevProblem/vivo_error.gif" style="zoom:50%;"></p>
+<p>&#x200B;    <strong>&#x89E3;&#x51B3;&#x529E;&#x6CD5;:</strong></p>
+<p>&#x200B;        &#x53BB;&#x9664;AppTheme &#x4E2D; &#x628A;windowIsTranslucent &#x53BB;&#x6389;&#x5373;&#x53EF;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&amp;#x6458;&amp;#x8981;:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x200B;    &amp;#x672C;&amp;#x7BC7;&amp;#x957F;&amp;#x671F;&amp;#x7EF4;&amp;#x62A4;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E9B;android&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android Dev Erp" scheme="http://iplugin.cn/tags/Android-Dev-Erp/"/>
+    
+      <category term="2018" scheme="http://iplugin.cn/tags/2018/"/>
+    
+  </entry>
   
   <entry>
     <title>代理模式</title>
